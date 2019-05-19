@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<p>click, dblclick, </p>
+	</main>
+
+	<style>
+		p{
+			font-size:14px;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('p').click(function(){
+					$(this).hide(); // ukrywa element display:none
+					$(this).show(); // pokazuje element display:block
+					keyup - w czasie nacisnięcia
+					keydown - po wcisnieciu
+					change - na zmiane 
+					submit - bo wcisinieciu na button submit formularza 
+				});
+				
+			});
+		</script>
+	</body>
+</html>

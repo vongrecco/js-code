@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+<script>
+	// 1.setTimeout()
+	// Służy ona wywołania z opóźnieniem funkcji przekazanej w pierwszym parametrze. W drugim parametrze podajemy czas w milisekundach po jakim zostanie ta funkcja wywołana.
+
+function myFunc() {
+    console.log('Jakiś tekst');
+}
+
+setTimeout(myFunc, 1200); //odpali po 1.2s
+
+// Gdy używasz setTimeout funkcja która ma być odpalona odkładana jest na stos, a cała reszta kodu jest wykonywana dalej. Gdy zadany czas minie, twoja funkcja zostanie wywołana:
+
+// b)Żeby przerwać wcześniej zainicjowany setTimeout (ale przed jego wykonaniem) korzystamy z metody clearTimeout() która w parametrze przyjmuje zmienną, pod którą zostało wcześniej podstawione wywołanie setTimeout():
+
+const time = setTimeout(function() {
+    console.log('Pełne zaskoczenie');
+}, 10000);
+
+clearTimeout(time); //powyższa funkcja nigdy się nie odpali, bo od razu przerwaliśmy setTimeouta
+
+// setInterval()
+
+// Powyższa funkcja setTimeout wywołuje daną funkcję tylko 1 raz.
+
+// Kolejna funkcja którą poznamy to setInterval(fn, time), która działa bardzo podobnie do setTimeout. Kluczową różnicą jest tutaj to, że setInterval będzie odpalać naszą funkcję co jakiś czas cyklicznie:
+
+const time = setInterval(function() {
+    console.log('Przykładowy napis');
+}, 1000);
+
+// Żeby zatrzymać taki interwał, skorzystamy z metody clearInterval(), która podobnie do clearTimeout() przyjmuje tylko jeden parametr, który jest zmienną, pod która wcześniej zostało podstawione zadeklarowanie setInterval:
+
+const time = setInterval(function() {
+    console.log('Wypiszę się co 1 sekundę');
+}, 1000);
+
+clearInterval(time);
+
+</script>
+  </body>
+</html>

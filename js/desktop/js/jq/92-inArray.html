@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<input type="text">
+		<input type="submit">
+		<br>
+		<div class="wynik"></div>
+	</main>
+
+	<style>
+
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+
+		jQuery(document).ready(function($){
+
+			var myNames = ['Piotr', 'Marek', 'Ola'];
+			$('input[type="submit"]').on('click', function(){
+				var inputValue = $('input[type="text"]').val();
+				console.log(inputValue);
+
+				if(jQuery.inArray(inputValue, myNames) !='-1'){
+					$('.wynik').text('Tak, imię '+ inputValue + ' jest w tablicy!')
+				}else{
+					$('.wynik').text('ni ma');
+				}
+			});
+
+		});
+
+		</script>
+	</body>
+</html>

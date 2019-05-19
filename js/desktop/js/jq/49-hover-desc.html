@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<div id="hoverDiv">asdsad</div>
+		<p><a class="hover" href="google.pl" hovertext="Google">Google</a></p>
+		<p><img class="hover" src="wpis-1-238x238.png" hovertext="on image!" alt=""></p>
+		<p class="count"></p>
+	</main>
+
+	<style>
+		#hoverDiv{
+			position:absolute;
+			font-size:14px;
+			color:#404040;
+			background: #fff;
+			border:1px solid red;
+			padding:7px;
+			display:none;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(event){
+
+				$('.hover').mousemove(function(){
+					// console.log('asd');
+					var hovertext = $(this).attr('hovertext');
+					$('#hoverDiv').text(hovertext).show();
+					var x = event.pageX;     // Get the horizontal coordinate
+					var y = event.pageY;     // Get the vertical coordinate
+					$('.count').html(x +" i "+ y);
+					$('#hoverDiv').css({
+						'position' : 'absolute',
+						'top' : x,
+						'left': y
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

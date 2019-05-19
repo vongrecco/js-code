@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Philips</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<link rel="stylesheet" href="dist/css/main.css">
+		
+	</head>
+	<body>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="keys">
+				<div class="key" data-key="65"><span>a</span><span class="sound">kick</span></div>
+				<div class="key" data-key="83"><span>s</span><span class="sound">kick</span></div>
+				<div class="key" data-key="68"><span>d</span><span class="sound">kick</span></div>
+				<div class="key" data-key="70"><span>f</span><span class="sound">kick</span></div>
+				<div class="key" data-key="71"><span>g</span><span class="sound">kick</span></div>
+				<div class="key" data-key="72"><span>h</span><span class="sound">kick</span></div>
+				<div class="key" data-key="74"><span>j</span><span class="sound">kick</span></div>
+				<div class="key" data-key="75"><span>k</span><span class="sound">kick</span></div>
+				<div class="key" data-key="76"><span>l</span><span class="sound">kick</span></div>
+			</div>
+				<audio data-key="65" src="sounds/CYCdh_Kurz04-Crash01.wav"></audio>
+				<audio data-key="83" src="sounds/CYCdh_Kurz04-HfHat.wav"></audio>
+				<audio data-key="68" src="sounds/CYCdh_Kurz04-Kick01.wav"></audio>
+				<audio data-key="70" src="sounds/CYCdh_Kurz04-OpHat.wav"></audio>
+				<audio data-key="71" src="sounds/CYCdh_Kurz04-PdHat.wav"></audio>
+				<audio data-key="72" src="sounds/CYCdh_Kurz04-Ride01.wav"></audio>
+				<audio data-key="74" src="sounds/CYCdh_Kurz04-SdSt.wav"></audio>
+				<audio data-key="75" src="sounds/CYCdh_Kurz04-Snr01.wav"></audio>
+				<audio data-key="76" src="sounds/CYCdh_Kurz04-Tom01.wav"></audio>
+		</div>
+
+		<div id="keycode">
+			<br>
+			<input type="text" size="40" onkeypress="myFunction(event)">
+			<br>
+			<p id="demo"></p>
+		</div>
+	</div>
+
+
+		<script type="text/javascript" src="dist/js/main.js"></script>
+	</body>
+</html>

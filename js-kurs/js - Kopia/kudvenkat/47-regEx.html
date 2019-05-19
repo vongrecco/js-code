@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+	<main>
+		
+		<p>999-122-2312</p>
+		<p>999 122 2312</p>
+		<p>999.122.2312</p>
+
+<h2>Pojedyncze znaki</h2>
+<p>\d - wszystkie liczby z przedzialu 0-9</p>
+<p>. - kazdy znak </p>
+<p> \w - A-Za-z0-9,   \W - nic z tego zbioru </p>
+<p> \s - spacja, tabulator, \S - nic z tego zbioru </p>
+
+<h2>kwantyfikatory</h2>
+<p>* - 0 bądź więcej znaków </p>
+<p>+ - 1 bądź więcej</p>
+<p>? - 0 or 1, moze byc albo go nie ma, opcjonalne, stawiane przed znakiem</p>
+<p>{min, max } badź też {n} - określona liczba</p>
+<p> jak mamy kot? to t, na końcu będzie opcjonalne</p>
+
+<h2>Pozycje</h2>
+<p>^ - rozpoczęcie</p>
+<p> $ - zakończenie</p>
+<p> \b - granica wyrażenia</p>
+
+<h2>albo albo </h2>
+<p>[-.] - to albo to</p>
+
+<h2>Uwaga!</h2>
+<p>[^0-5{3}] - wszystko POZA 0-5</p>
+
+
+<input type="text" id="text"><br>
+<input type="submit" value="click" id="click">
+
+		<script type="text/javascript">
+
+			var expression = " ala ma kota";
+			var reg = /kota/;
+			console.log(reg.test(expression));
+
+			var reg2 = /kota$/;
+			console.log(reg2.test(expression));
+
+			var text = "Turlal goryl po Urlach kolorowe korale...";
+			var reg3 = /[A-Z]{1}[^\s]+/;
+			console.log(reg3.test(text));
+
+			var reg4 = /[0-9]*/;
+			console.log(reg4.test(text));
+
+			var text2 = "Numer1, Numer2, Numer3, NumerB, Numer5, NumerD";
+			var reg5 = /Numer[0-9A-B]/g;
+			// /g - pokaz wszystkie pasujące, bez tego wybierze tylko PIERWSZY, flaga
+			// /i to małe i duże literki, bez znaczenia
+			console.log(text2.match(reg5));
+
+			var reg6 = /Numer2/;
+			console.log(text2.match(reg6));
+
+			var text3 = "Fantomas robi masę - marchewkowo-marcepanowa";
+			var reg7 = /ma/gi;
+			        
+			console.log("Search: " + text3.search(reg7));
+			console.log("Index of: " + text3.indexOf("ma"));
+
+			//czy to liczba?
+
+			var liczba = "12312312312";
+
+			var reg8 = /^\d+$/;
+
+			if(reg8.test(liczba)){
+				console.log("To jest liczba");
+			}
+			else{
+				console.log("To nie jest liczba");
+			}
+
+			// kod pocztowy
+
+			var kod = "24-200";
+			var reg9 = /[0-9]{2}-[0-9]{3}/g;
+			// lub var codeReg = /[\d]{2}-[\d]{3}/g;
+
+			if(reg9.test(kod)){
+				console.log("To kod pocztowy");
+			}else{
+				console.log("to nie jest kod pocztowy");
+			}
+
+			//walidacja imienia i nazwiska
+
+			var imie = "Piotr Greczkowski";
+			var reg10 = /^\D{3,}\s\D{3,}$/;
+			//\D - duze małe litery, \d tylko małe
+			console.log(reg10.test(imie));
+
+
+			function getReg(){
+			var element = document.getElementById('text').value,
+				button = document.getElementById('click');
+
+				var reg12 = /[\w]{2,}\s[\w]{6,}/g;
+				var regex = reg12.test(element);
+
+				if(regex){
+					console.log("Wyrazenie działa");
+				}else{
+					console.log("nie działa");
+				}
+			};
+
+			document.addEventListener("click", getReg);
+
+
+
+		</script>
+	</main>	
+	</body>
+</html>

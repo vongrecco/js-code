@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <style type="text/css">
+        h2{
+            color:#000;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <a id="button">Asd</a>
+        <a class="button2">Asd</a>
+
+        <!-- odczyt stylu z elementu -->
+        <div class="module">
+            <h3 class="module-title">Przykładowa nazwa artykułu</h3>
+            <div class="module-content" style="display:none">
+                Lorem ipsum dolor sit amet...
+            </div>
+            <button type="button" class="button3 module-button" id="testShowContent">Pokaż treść</button>
+        </div>
+
+        <div class="box">
+            <h2>Ala ma kota</h2>
+            <div class="button4">Click me</div>
+        </div>
+
+<hr>
+
+    wyłącza klika z elementu
+        <a href="google.pl" id="button3">Click</a>
+        <script type="text/javascript">
+        let button3 = document.querySelector('#button3');
+        button3.addEventListener('click', function(e){
+            e.preventDefault();
+            console.log('nie ma takiego klikania');
+        });
+        </script>
+<hr>
+
+Który klawisz został naciśnięty
+
+<input class="input-click" type="text" placeholder="kliknij w klawiaturę">
+    
+    <script type="text/javascript">
+    let keyClick = document.querySelector('.input-click');
+    keyClick.addEventListener('keyup', function(e){
+        console.log('klawisz to: ' + e.key);
+    });
+    </script>
+Możemy też skorzystać z dodatkowych właściwości:
+e.altKeye, e.ctrlKey, e.shiftKey, e.keyCode 
+
+<hr>
+ 
+Zatrzymanie propagacji stopPropagation();
+
+<div class="parent">
+    <button class="button4">Kliknij mnie</button>
+</div>
+<script type="text/javascript">
+
+const div = document.querySelector('.parent');
+const a = document.querySelector('.parent .button4');
+
+div.addEventListener('click', function(e) {
+    console.log('Kliknięto div');
+});
+
+a.addEventListener('click', function(e) {
+    e.stopPropagation();
+    console.log('Kliknięto przycisk');
+});
+
+</script>
+
+stopImmediatePropagation - blokuje wywołania innych funkcji na danymelemencie
+
+
+Dodawanie zdarzeń do elementów tworzonych dynamicznie:
+
+http://kursjs.pl/kurs/events/events-test3.html
+
+<div class="elements-list">
+
+</div>
+
+<div class="add-element-bar">
+    <button class="btn add-element">
+        Dodaj element
+    </button>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+
+        let counter = 0;
+        const addBtn = document.querySelector('.add-element');
+        const list = document.querySelector('.elements-list');
+
+
+        addBtn.addEventListener('click', function(){
+            counter++;
+            let el = document.createElement('div');
+            el.classList.add('element');
+            el.innerText = "To jest zawrtość tekstowa diva";
+            console.log('click');
+
+            let del = document.createElement('button');
+            del.innerText = "Usuń";
+            del.classList.add('delete');
+
+            el.appendChild(del);
+            list.appendChild(el);
+        });
+
+        list.addEventListener('click', function(e){
+            // e.target; - ten który kliknął
+            // e.currentTarget; - ten który nasłuchuje
+            console.log(e.target);
+            console.log(e.currentTarget);
+            if (e.target.classList.contains('delete')) {
+                const element = e.target.parentElement;
+                element.parentElement.removeChild(element);
+            }
+
+
+        });
+
+    });
+
+
+
+
+
+
+    //     list.addEventListener('click', function(e) {
+    //         //e.target - ten który kliknął
+    //         //e.currentTarget - ten który nasłuchuje
+    //         console.log(e.target)
+    //         if (e.target.classList.contains('delete')) {
+    //             const element = e.target.parentElement;
+    //             element.parentElement.removeChild(element);
+    //         }
+    //     });
+
+
+</script>
+
+<hr>
+
+można tworzyć własne eventy
+
+<a href="http://kursjs.pl/kurs/events/events.php#dispatchEvent">custom events</a>
+
+    </div>
+</body>
+   
+    <script type="text/javascript">
+
+/*
+
+click   odpalane, gdy element został kliknięty (np. input)
+change  odpalane, gdy opuściliśmy element, i zmienił on swoją zawartość (np. pole tekstowe)
+mouseover   odpalane, gdy kursor znalazł się na elemencie
+mouseout    odpalane, gdy kursor opuścił element
+mouseenter  odpalane, gdy kursor znalazł się na elemencie
+mouseleave  odpalane, gdy kursor opuścił element
+dblclick    odpalane, gdy podwójnie klikniemy na element (np. input)
+submit  odpalane, gdy formularz jest wysyłany
+resize  odpalane, gdy rozmiar okna przeglądarki jest zmieniany
+focus   odpalane, gdy element stał się wybrany (np. pole tekstowe, link, button, element z tabindex)
+blur    odpalane, gdy element przestał być aktywny (np. opuściliśmy input)
+keydown odpalane, gdy został naciśnięty klawisz na klawiaturze
+keyup   odpalane gdy puścimy klawisz na klawiaturze
+input   podobne do powyższego, ale odpalane synchronicznie w czasie trzymania klawisza (np. przytrzymanie klawisza A w polu tekstowym)
+load    odpalane, gdy obiekt został załadowany (np. cała strona, pojedyncza grafika)
+contextmenu odpalane, gdy kliknięto prawym klawiszem myszki i pojawiło się menu kontekstowe
+wheel   odpalane, gry kręcimy kółeczkiem myszki
+select  odpalane, gdy zawartość obiektu została zaznaczona
+unload  odpalane, gdy użytkownik opuszcza dana stronę
+animationstart  odpalane, gdy animacja css się zacznie
+animationend    odpalane, gdy animacja css się zacznie
+animationiteration  odpalane, gdy animacja css zrobi jedną iterację
+transitionstart odpalane, gdy transition css się zacznie
+transitionend   odpalane, gdy transition css się zacznie
+transitionrun   odpalane, gdy transition css się zacznie (odpalane przed opóźnieniem transition)
+
+*/
+
+// sprawdzenie czy dokument został wczytany, alternatywą jest window.load - czeka na wczytanie także grafik co nie zawsze jest dobre
+
+document.addEventListener("DOMContentLoaded", function(event){
+    console.log('dokument został wczytany');
+});
+
+/*
+
+addEventListener().
+
+Przyjmuje ona 3 argumenty: typ zdarzenia, funkcja callback do wywołania, oraz trzeci opcjonalny argument, który włącza lub wyłącza (true/false) propagację zdarzeń (domyślnie false, w 99% jest pomijany).
+
+const element = document.querySelector('.btn');
+
+//rejestrujemy 3 zdarzenia click dla elementu
+element.addEventListener('click', showMe);
+element.addEventListener('click', showSomething)
+element.addEventListener('click', function() {
+    this.style.color = 'red';
+});
+
+usunięcie funkcji z danego zdarzenia 
+
+element.removeEventListener('click', showMe);
+
+Podpinając zdarzenie do danego elementu możemy użyć this lub też podać w parametrze funkcji e. Wtedy zdarzenie zostaje przypisane tylko do kilkniętego elementu.
+
+typ zdarzenia sprawdzamy za pomocą e.type co da nam click
+
+*/
+
+
+    </script>
+</html>

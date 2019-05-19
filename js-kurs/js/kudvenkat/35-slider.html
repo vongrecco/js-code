@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+
+		<div id="main">
+			<img src="img/1.jpg" id="image" style="width:150px;height:150px;"><br>
+			<input type="button" id="start" value="Start" onclick="startSlide();">
+			<input type="button" id="stop" value="Stop" onclick="stopSlide();">
+		</div>
+		<div id="main2"></div>
+		<div id="main3"></div>
+		<script type="text/javascript">
+
+			var interValidId;
+
+			function startSlide(){
+				interValidId = setInterval(changeImage, 1000);
+			}
+
+			function stopSlide(){
+				clearInterval(interValidId);
+			}
+
+			function changeImage() 
+			{
+				var imageSrc = document.getElementById("image").getAttribute("src");
+				var currentImageNumber = imageSrc.substring(imageSrc.lastIndexOf('/')+1, imageSrc.lastIndexOf('.'));
+				currentImageNumber = Number(currentImageNumber);
+				if(currentImageNumber == 5){
+					currentImageNumber = 0;
+				}
+				console.log(currentImageNumber);
+
+				document.getElementById("image").setAttribute("src", "img/" + (currentImageNumber+1) + ".jpg");
+
+			}
+
+
+		</script>
+	</main>	
+	</body>
+</html>

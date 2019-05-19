@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <a class="button">Asd</a>
+        <form id="contactForm" class="form-contact" method="post" action="script.php">
+            ...
+        </form>
+        <div class="text-cnt">
+            <p id="text">
+                Mała
+                <strong style="color:red">Ala</strong>
+                miała
+                <span style="color:blue">kota</span>
+            </p>
+        </div>
+        <div class="module">
+            <div class="module-content">
+                <div>
+                    <div class="module-text">
+                        Lorem ipsum dolor sit amet...
+                    </div>
+                    <button class="button1">Kliknij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+   
+    <script type="text/javascript">
+     
+    const form = document.querySelector('.form-contact');
+
+    const formID = form.getAttribute('id');
+    const callType = form.getAttribute('method');
+    const callUrl = form.getAttribute('action');
+    let setAttr = form.setAttribute('disable', 'disable');
+
+    console.log(form);
+
+    let button = document.querySelector('.button');
+    button.setAttribute('data-container', 2);
+
+    console.log(button);
+
+const text = document.querySelector('#text');
+
+text.parentElement //wskazuje na nadrzędny nod będący elementem - div.text-cnt
+text.parentNode //wskazuje na nadrzędny nod - div.text-cnt
+
+text.firstChild //pierwszy node - w naszym przypadku to tekst "Mała "
+text.lastChild //ostatni node - "" - html jest sformatowany, wiec ostatnim nodem jest znak nowej linii
+
+text.firstElementChild //pierwszy element - <strong style="color:red">Ala</strong>
+text.lastElementChild //ostatni element - <span style="color:blue">kota</span>
+
+text.children; //[strong, span] - kolekcja elementów
+text.children[0] //wskazuje na 1 element - <strong style="color:red">Ala</strong>
+
+text.childNodes //[text, strong, text] - kolekcja wszystkich dzieci - nodow
+text.childNodes[0] //"Mała"
+
+text.nextSibling //następny węzeł
+text.previousSibling //poprzedni węzeł
+text.nextElementSibling //następny brat-element
+text.previousElementSibling //poprzedni brat-element
+
+text.firstElementChild.nextElementSibling //kolejny brat-element pierwszego elementu - <span style="color:blue">kota</span>
+text.firstElementChild.nextSibling //kolejny brat-node pierwszego elementu - "miała"
+
+text.firstElementChild.previousElementSibling //poprzedni brat-element pierwszego elementu - null, bo przed pierwszym stron nie ma elementow
+text.firstElementChild.previousSibling //poprzedni brat-node pierwszego elementu - "Mała"
+
+//powyższe możemy łączyć
+text.children[0].firstChild //pierwszy element i w nim pierwszy nod : "Ala"
+text.children[0].firstElementChild //null - w pierwszym strong nie mamy juz elementów
+
+text.firstChild.firstElementChild //null - nie ma elementu w pierwszym tekście
+text.firstElementChild.firstElementChild //null - nie ma elementy w strong
+
+// element.closest(selektor) odnajduje najbliższy elementowi element który pasuje do selektora:
+
+document.querySelector('.button1').addEventListener('click', function() {
+    const module = this.closest('.module');
+    console.log(module);
+});
+
+// tworzenie elementow
+
+const el = document.createElement("div");
+el.id = "myDiv";
+el.innerText = "To jest nowy div";
+el.classList.add('module');
+
+document.querySelector('.container').appendChild(el);
+
+// parentNode.insertBefore(element, beforeNode), która do parentNode wstawia element element przed elementem beforeNode
+
+// usuwanie elementow 
+
+// element.remove();
+// removeChild(element)
+
+// zastąpienie elementu drugim
+
+// replaceChild()
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+	<main>
+
+		<input type="button" id="clickMe" value="Click"> <br>
+		<textarea rows="20" cols="20"></textarea>
+		<script type="text/javascript">
+
+		var clickMe = document.getElementById('clickMe');
+
+		console.log(clickMe);
+		clickMe.addEventListener('click', mouseChecker);
+
+
+		var whichButton;
+
+		function mouseChecker(event){
+			switch(event.which){
+				case 1:
+					whichButton = "Left Mouse Button Click";
+				break;
+
+				case 2:
+					whichButton = "Left Mouse Button Center";
+				break;
+				
+				case 3:
+					whichButton = "Left Mouse Button Right";
+				break;
+
+				default :
+					whichButton = "Invalid button";
+					break;
+
+			}
+
+		}
+		
+
+		</script>
+	</main>	
+	</body>
+</html>

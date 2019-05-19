@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+
+		<div id="main">
+			<input type="submit" id="firstName" onclick="displayEventDetails(event)" onmouseover="displayEventDetails(event)">
+			<br>
+			<div id="resultDiv"></div>
+		</div>
+		<div id="main2"></div>
+		<div id="main3"></div>
+		<script type="text/javascript">
+
+			function displayEventDetails(event) {
+				var sourceElement;
+				if (event.srcElement) {
+					sourceElement = event.srcElement;
+				} else {
+					sourceElement = event.target;
+				} 
+				var eventDetails = "Event = " + 
+				// pokazuje typ eventu
+				event.type + "<br/> X = " + 
+				// pokazuje pozycje w pixelach wywolania zdarzenia w X - szerokość
+				event.clientX + "<br/>Y = " +
+				// pokazuje pozycje w pixelach wywolania zdarzenia w Y - wysokość
+				event.clientY + "<br/>Target Type = " + 
+				// typ targetu
+				sourceElement.type + "<br/>Target Tag Name = "
+				// typ tagu
+				+ sourceElement.tagName; document.getElementById("resultDiv").innerHTML = eventDetails; 
+			}
+
+		</script>
+	</main>	
+	</body>
+</html>

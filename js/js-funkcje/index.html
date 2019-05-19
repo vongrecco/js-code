@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <a class="button">Asd</a>
+    </div>
+</body>
+   
+    <script type="text/javascript">
+
+    let lb1 = 2048,
+        lb2 = 102400;
+
+    let prc = ( Math.floor((parseInt(lb1) / parseInt(lb2)) * 100 )); 
+
+    console.log(prc);
+
+    // punkcje
+
+    function mojaFubnkcja(){
+        console.log('to funkcja');
+    }
+
+    mojaFubnkcja();
+
+    function line() {
+        let str = ''
+        for (let x=0; x<10; x++) {
+            str += '-';
+    }
+    console.log(str);
+    }
+
+    line();
+
+    let x = 20;
+    console.log("20 + 20 = ", x + 20);
+
+    line();
+
+    console.log("Ala ma kota");
+    console.log("a kot ma Alę");
+
+    line();
+
+    function suma(a,b){
+        console.log(a + b);
+    }
+
+    suma(2, 5);
+
+    function ala(name){
+        console.log(name + ' ma kota!');
+    }
+
+    ala('Ala');
+
+
+    function textChanger(name){
+        console.log(name.charAt(0).toUpperCase() + name.substr(1))
+    }
+
+    textChanger('marcin');
+
+
+// js nie wymaga abysmy z gory okreslali parametry, mozemy wtedy skorzystac z obiektu aguments
+
+    function sum(){
+        console.log(arguments);
+    }
+    sum('Ola', 'Ala', 'Iga');
+
+    // obiekt ten przypomina tablicę ale nią nie jest
+
+
+
+    // brak przekazania parametru
+
+
+    function printText(txt) {
+        if (txt === undefined) { //bo txt i tak zostanie stworzone
+            txt = "lorem";
+        }
+
+        console.log(txt);
+    }
+
+
+    printText(); //lorem
+
+
+
+
+
+
+        function repeat(txt, nr) {
+            let str = '';
+            for (let i=0; i<nr; i++) {
+                str += txt;
+            }
+            return str + ' buritto!';
+        }
+
+        //pobieram przycisk ze strony i wstawiam do niego tekst
+        //o pobieraniu elementów ze strony jeszcze się dowiesz
+        document.querySelector('.button').innerText = repeat("tako", 4);
+
+        //lub wypisujemy to w alercie
+        alert(repeat('maslo', 10));
+
+
+
+        // deklaracja funkcji
+
+        function a(){
+
+        }
+
+        //wyrażenie funkcjyjne
+
+        const myB = function myB(){
+            // ... kod funkcji anonimowej
+        }
+
+        // jeśli podstawiamy funkcje pod zmienną to nie potrzebuje ona nazwy - funkcja anonimowa
+
+        const myFunction = function() {
+            // ...kod funkcji
+        }
+
+
+    </script>
+</html>

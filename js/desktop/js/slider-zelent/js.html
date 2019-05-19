@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<META charset ="UTF-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body onload="zmienslide()">
+	<div id="slider"></div>
+	<span onclick="ustawslide(1)">[1]</span>
+	<span onclick="ustawslide(2)">[2]</span>
+	<span onclick="ustawslide(3)">[3]</span>
+	<span onclick="ustawslide(4)">[4]</span>
+	<span onclick="ustawslide(5)">[5]</span>
+</body>
+</html>
+
+<script type="text/javascript">
+
+	var number= Math.floor(Math.random()*5)+1;
+	var timer1=0;
+	var timer2=0;
+	function ustawslide(nrslidu)
+	{
+		clearTimeout(timer1);
+		clearTimeout(timer2);
+		numer = nrslidu -1;
+
+		schowaj();
+		setTimeout("zmienslide()", 500);
+	}
+	function schowaj()
+	{
+		$("#slider").fadeOut(500);
+	}
+	function zmienslide()
+	{
+		number++;if(number>5)number=1;
+
+		var plik = "<img src=\"img/slide"+number+".png\" />";
+
+		document.getElementById("slider").innerHTML = plik;
+		$("#slider").fadeIn(500);
+
+		timer1 = setTimeout("zmienslide()",3500);
+		timer2 = setTimeout("schowaj()",3000);
+	}
+
+</script>
+
+<style>
+	body{
+		background:#222;
+	}
+</style>

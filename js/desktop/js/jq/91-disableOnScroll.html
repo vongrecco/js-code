@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<textarea name="textAr" id="" cols="30" rows="10">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure placeat dolore quibusdam magnam quia aut delectus vel repellat architecto suscipit similique officia quis necessitatibus quidem maxime molestiae recusandae atque nihil totam soluta, a, aliquid itaque debitis possimus, ab. Libero fuga, a, ut sequi vitae rem animi quaerat dolore dolorum quisquam magnam! Nesciunt quis facere, quaerat enim iure minus recusandae sequi, repudiandae, sint placeat architecto ad neque illum sunt ipsam suscipit! Labore quas rerum, neque optio harum repellendus quos voluptas minus error ad sunt illo quisquam placeat! Ipsa minima, repellendus sint, modi perferendis, temporibus nihil accusamus totam recusandae, eius id nam.
+		</textarea>
+		<input type="checkbox" data-attr="checkbox" >
+	</main>
+
+	<style>
+
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+
+		jQuery(document).ready(function($){
+
+			$('[data-attr="checkbox"]').attr('disabled', 'disabled');
+			$('[name="textAr"]').scroll(function(){
+				// znacznik JS, aktualna wysokosc calego elementu
+				var textarea_height = $(this)[0].scrollHeight;
+				// atkualna wysokosc okna
+				var scroll_height = textarea_height - $(this).innerHeight();
+				//wysokosc scrolowania
+				var scroll_top = $(this).scrollTop();
+
+				if(scroll_top === scroll_height){
+					$('[data-attr="checkbox"]').removeAttr('disabled');
+				}
+
+				console.log(scroll_top);
+			});
+		});
+
+		</script>
+	</body>
+</html>

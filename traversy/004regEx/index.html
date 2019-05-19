@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>regular expression</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+	<main>
+
+		<script>
+			// 1. Aby w Javascript korzystać z wyrażeń regularnych, musimy utworzyć obiekt RegExp(wyrażenie, flaga), który przyjmuje 2 argumenty: wyrażenie, którym będziemy testować, oraz dodatkowe flagi, które poznamy w tym rozdziale.
+
+			// a
+			let reg = new RegExp("pani?", "gi");
+
+			// b
+			let reg2 = /pani?/gi;
+
+			// c METAZNAKI
+
+			/*
+				- ^	początek wzorca
+				- $	koniec wzorca
+				- .	dowolny pojedynczy znak
+				- [...]	dowolny z wymienionych znaków;
+				- [^...]	dowolny z niewymienionych znaków
+				- |	dowolny z rozdzielonych znakiem ciągów
+				- (...)	zawężenie zasięgu
+				- ?	zero lub jeden poprzedzający znak lub element;
+				- +	jeden lub więcej poprzedzających znaków lub elementów;
+				- *	zero lub więcej poprzedzających znaków lub elementów; 
+				- {4}	dokładnie 4 poprzedzające znaki lub elementy
+				- {4,}	4 lub więcej poprzedzających znaków lub elementów
+				- {2,4}	od 2 do 4 poprzedzających znaków lub elementów
+
+				???
+			*/
+
+			// d FLAGI
+
+			/*
+				i	powoduje niebranie pod uwagę wielkości liter
+				g	powoduje zwracanie wszystkich pasujących fragmentów, a nie tylko pierwszego
+				m	powoduje wyszukiwanie w tekście kilku liniowym. W trybie tym znak początku i końca wzorca (^$) jest wstawiany przed i po znaku nowej linii (\n).
+			*/
+
+			// e. KLASY ZNAKÓW
+
+			/*
+				\s	znak spacji, tabulacji lub nowego wiersza
+				\S	znak nie będący spacją, tabulacją lub znakiem nowego wiersza
+				\w	każdy znak będący literą, cyfrą i znakiem _
+				\W	każdy znak nie będący literą, cyfrą i znakiem _
+				\d	każdy znak będący cyfrą
+				\D	każdy znak nie będący cyfrą
+			*/
+
+			// 2. test() - sprawdza czy dane wyrażenie znajduje się w tekście
+			// regEx.test(string)
+			// a) zwraca true lub false
+
+			let test = "cat and dog";
+			let regEx = /dog/;
+			console.log("test method : " + regEx.test(test));
+
+
+			// 3. exec() - przeszukuje dany ciąg znaków, a następnie zwraca tablicę zawierającą składowe pierwszego wyszukanego fragmentu.
+
+			// a. ) jesli nic nie znajdzie zwraca null
+			// b. ) Jeżeli metoda coś znajdzie, wtedy element 0 zawiera ostatni pasujący ciąg, natomiast elementy o indeksie 1 - n zawierają poszczególne części wyszukiwania 
+			// regEx.exec(string)
+
+			const re = /d(b+)(d)/ig;
+			const result = re.exec("cdbBdbsbz");
+			console.log("exec() : " + result);
+
+			// 4. Match() - zwraca od razu wszystkie pasujące fragmenty.
+			// string.match(regEx)
+
+			const text = "Numer1, Numer2, Numer3, NumerB, Numer5, NumerD";
+			const regText = /Numer[1-4A-C]/g;
+			console.log("Match() : " + text.match(regText))
+
+			// 5. search() - obiektu RexExp działa tak samo jak metoda indexOf() obiektu string, czyli zwraca indeks pierwszego wystąpienia podciągu w ciągu:
+
+			let text1 = "Fantomas robi masę - marchewkowo-marcepanowa";
+			let regText1 = /ma/gi;
+			console.log("search() : " + text1.search(regText1));
+
+			// a) zwraca -1 jeśli nie znalazło tekstu
+			// b) wskazuje index stringu, pierwszego znalezionego
+
+			// 6. replace(wyrażenie, podmienioneNa) - służy do zamiany jednego ciągu na drugi. Przy jej stosowaniu możemy używać wyrażeń regularnych:
+
+			text1 = "Kolorowy kolor nie jest kolorowy?...";
+			regText1 = /lor/g;
+			console.log("replace() : " + text1.replace(regText1, "ral"));
+
+			// a)Jako drugi argument tej metody możemy podać funkcję.
+
+			const text2 = "Super Samson jest fajny.";
+			const reg3 = /fajny/;
+			const textEnhanced = text2.replace(reg3, function(match) {
+			    return "super" + match;
+			});
+
+			console.log("replace() drugi parametr jako funkcja : " + textEnhanced); //Super Samson jest super fajny
+
+
+
+		</script>
+		
+		<h2>Example:</h2>
+
+		<h3>It is a number?</h3>
+		<input type="text" id="number">
+		<button id="numberClick">Click</button>
+
+		<script>
+			let	numberSubmit = document.getElementById("numberClick");
+			let numberRegEx = /^\d+$/gi;
+
+			function checkIsNumbe(){
+				let isNumber = document.getElementById("number").value;
+				console.log(isNumber);
+				if(numberRegEx.test(isNumber)){
+					console.log('liczba')
+				}else{
+					console.log('to nie liczba')
+				}
+			}
+			numberSubmit.addEventListener('click', checkIsNumbe);
+
+		</script>
+
+		<hr>
+
+		<h3>ZIP code</h3>
+		<input type="text" id="code">
+		<button id="codeClick">Click</button>
+
+		<script>
+			let	codeSubmit = document.getElementById("codeClick");
+			let codeRegEx = /^\d{2}-\d{3}$/
+
+			// /d wszystkie liczby
+
+			function checkIsNumbe(){
+				let isCode = document.getElementById("code").value;
+				console.log(isCode);
+				if(codeRegEx.test(isCode)){
+					console.log('Poprawny kod pocztowy')
+				}else{
+					console.log('niepoprawny kod pocztowy')
+				}
+			}
+			codeSubmit.addEventListener('click', checkIsNumbe);
+
+		</script>
+
+		<hr>
+
+		<h3>find ZIP code</h3>
+		<textarea id="codeFind"></textarea>
+		<button id="codeFindClick">Click</button>
+
+		<script>
+			let	codeFindSubmit = document.getElementById("codeFindClick");
+			let codeRegEx2 = /[0-9]{2}-[0-9]{3}/g;
+
+			function checkIsNumbe1(){
+				let isCodeFind = document.getElementById("codeFind").value;
+				// let isCodeFind = "Moj kod pocztowy to nie 12-323 ani tez 03-400 ... jest po prostu inny.";
+				let isCodeResult = isCodeFind.match(codeRegEx2);
+
+				if(isCodeResult){
+					for(let i = 0; i < isCodeResult.length; i++){
+						console.log(isCodeResult[i])
+					}
+				}
+			}
+			codeFindSubmit.addEventListener('click', checkIsNumbe1);
+
+		</script>
+
+		<script>
+			
+			let name = "PiotrGrecoo";
+			let nameReg = /^[a-zA-Z]{3,}\s+[a-zA-Z]{2,}$/g;
+
+			console.log("name check : " + nameReg.test(name));
+
+		// / - od tego znaku muszą się zaczynać i kończyć wszystkie wzorce w JavaScript
+		// ^ - Wzorzec ma się zaczynać z początkiem tekstu
+		// [a-zA-Z]{3,} - Ciąg musi zawierać przynajmniej 4 litery (imię)
+		// \s+ - Po których znajdą się spacje lub tabulatory (min jeden)
+		// [a-zA-Z]{3,} - Po których znajdą się znowu przynajmniej 3 litery (nazwisko)
+		// $ - Wzorzec ma się kończyć z końcem tekstu
+		</script>
+
+
+		<hr>
+		<a href="http://javascript-html5-tutorial.pl/wyrazenia-regularne-w-javascript.html">http://javascript-html5-tutorial.pl/wyrazenia-regularne-w-javascript.html</a> <br>
+		<a href="https://fsgeek.pl/post/wyrazenia-regularne-w-javascript/">https://fsgeek.pl/post/wyrazenia-regularne-w-javascript/</a><br>
+		<a href="https://www.endfront.pl/2018/06/18/wyrazenia-regularne-regexp-javascript-wstep/">https://www.endfront.pl/2018/06/18/wyrazenia-regularne-regexp-javascript-wstep/</a><br>
+		<a href="https://kursjs.pl/kurs/regular.php">https://kursjs.pl/kurs/regular.php</a><br>
+
+	</main>	
+	</body>
+</html>

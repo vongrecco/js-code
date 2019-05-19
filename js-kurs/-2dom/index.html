@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+	<button class="btn">ads</button>
+	<button class="btn">qwe</button>
+	<button class="btn">zxc</button>
+
+	<button class="zxc">qwe</button>
+	<button class="zxc">asd</button>
+	<button class="zxc">zxc</button>
+<script type="text/javascript">
+	let button = document.querySelectorAll(".btn");
+		for(let i = 0; i < button.length; i++){
+			button[i].style.background = "red";
+			console.log(button.length);
+		}
+
+//Wyjątkiem jest tutaj forEach, która została w nowych przeglądarkach dodana także dla kolekcji elementów
+		document.querySelectorAll('.zxc').forEach(function(el){
+			el.style.color = "red";
+		});
+</script>
+	</body>
+</html>

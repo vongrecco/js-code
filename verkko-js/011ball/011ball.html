@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+	
+	<body>
+		
+	</body>
+	<script>
+		// tworzenie elementu html
+		const ball = document.createElement("img");
+		// dodanie do body
+		document.body.appendChild(ball);
+
+		// style
+		ball.src="ball.png";
+		ball.style.position = "absolute";
+		ball.style.width = "80px";
+		ball.style.height = "80px";
+		ball.style.left="0px";
+		ball.style.top = "0px";
+
+		// szerokość i wysokość okna przeglądarki
+		let boundX = window.innerWidth;
+		let boundY = window.innerHeight;
+
+		let speed = 10;
+		let x = 1;
+		let y = 1;
+
+		function ballPosition(){
+		// odstęp elementu od lewej oraz góry
+			let ballX = ball.offsetLeft;
+			let ballY = ball.offsetTop;
+
+			// odstęp od lewej + wysokość elementu ball jest większa od szeroości przeglądarki
+			if(ballX + ball.offsetWidth > boundX || ballX < 0){
+				x*=-1;
+			}
+
+			if(ballY + ball.offsetHeight > boundY|| ballY < 0){
+				y*=-1;
+			}
+
+			ball.style.left = ball.x + (speed * x ) + "px";
+			// jest równe 
+			// ball.style.left = ball.style.left + speed + "px";
+
+			ball.style.top = ball.y + (speed * y) + "px";
+			// jest równe 
+			// ball.style.top = ball.style.top + speed + "px";
+
+			// funkcja wykonywana co 20 ms
+			setTimeout(ballPosition,20)
+
+		}
+
+		ballPosition();
+
+
+	</script>
+</html>

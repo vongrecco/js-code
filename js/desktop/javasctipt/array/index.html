@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+		
+		1.length
+		2.Array.from() -
+		3.Array.isArray() -
+		4.Array.observe()
+		5.Array.of()
+		6.Array.prototype.concat()
+		7.Array.prototype.copyWithin()
+		8.Array.prototype.entries()
+		9.Array.prototype.every()
+		10.Array.prototype.fill()
+		11.Array.prototype.filter()
+		12.Array.prototype.find()
+		13.Array.prototype.findIndex()
+		14.Array.prototype.forEach()
+		15.Array.prototype.includes()
+		16.Array.prototype.indexOf()
+		17.Array.prototype.join()
+		18.Array.prototype.keys()
+		19.Array.prototype.lastIndexOf()
+		20.Array.prototype.map()
+		21.Array.prototype.pop()
+		22.Array.prototype.push()
+		23.Array.prototype.reduce()
+		24.Array.prototype.reduceRight()
+		25.Array.prototype.reverse()
+		26.Array.prototype.shift()
+		27.Array.prototype.slice()
+		28.Array.prototype.some()
+		29.Array.prototype.sort()
+		30.Array.prototype.splice()
+		31.Array.prototype.toLocaleString()
+		32.Array.prototype.toSource()
+		33.Array.prototype.toString()
+		34.Array.prototype.unshift()
+		35.Array.prototype.values()
+
+
+		<script type="text/javascript">
+
+		//1 length - najwyzszy indeks elementu + 1 
+		var array1 = [1,2,3,4,5,6,6,3];
+		var arrayLeng = array1.length;
+		console.log(arrayLeng);
+
+
+
+// 1.concat()
+
+		// dodaje dwie tablice do siebie
+
+		var concat1 = ['asd','dsa','zxc'],
+			concat2 = ['mnv', 'qaz', 'wsx'];
+
+		var concatSum = concat1.concat(concat2);
+
+		console.log('concat: ' + concatSum);
+
+// 2.copyWithin()
+
+		//kopiuje elementy tablicy w określone miejsce w niej
+		// który element index / w które miejsce
+
+		var copyWithin1 = ["banan", "japko", "grucha", "jajko"];
+		var copyWithinSum = copyWithin1.copyWithin(2,0);
+
+		console.log(copyWithinSum);
+
+// 4.fill()
+
+		// wypełnia określone elementy tablicy okreslona wartością, domyślnie zmienia całą tablicę
+
+		// array.fill(value, start, end) / value = okreśona wartość (konieczne)/ index startowy do podmiany / index konczacy podmiane
+
+		var fill1 = [12,32,23,43,13];
+		var fill2 = fill1.fill("podmianka", 2, 4);
+
+		console.log(fill2);
+
+// 5.indexOf()
+
+		//wskazuje pozycje szukanego elementu w tablicy, liczy od 0! 
+		var tablica = ["kot", "piesel", "kun", "japko", "koninio"];
+		// array.lastIndexOf(item, start) - szukany elemnet / od którego elementu zaczynamy szukanie
+		// jesli element nie zostanie znaleziony dostaniemy -1
+		var indexOfTable = tablica.indexOf('kot');
+
+		console.log(indexOfTable);
+
+// 6.lastIndexOf()
+		// liczy od początku, 
+		var tablica1 = tablica.lastIndexOf('japko');
+		// opcjonalnie mozna dodac liczbę startową
+		console.log(tablica1);
+
+// 7.join()
+
+		// łączy elementy tablicy w string, domyślnie separuje elememny przecinkami
+		var join1 = tablica.join();
+
+		console.log(join1);
+
+		// obligatoryjnie mozna dodac separator
+
+		var join2 = tablica.join(" and ");
+
+		console.log(join2);
+
+// 8.pop()
+
+		//usuwa ostatni element z tabeli i zwraca pozostałe rzeczy
+		var pop1 = [1, 3, 2, 3, 4, 3, 99];
+
+		var pop2 = pop1.pop();
+
+		console.log('Pop : '+pop1);
+
+// 9.shift() 
+		// odwrotnosc pop(), usuwa pierwszy element tablicy
+
+		var shift1 = [29,22,11,21,43,32,34];
+
+		var shift2 = shift1.shift();
+
+		console.log('shift : ' + shift1);
+
+// 10.push()
+
+		// dodaje element na koncu tablicy i zwraca ją z nową długością
+
+		var push1 = ['kot', 'pies', 'kun'];
+
+		// po przecinku dodajemy dodatkowe elementy 
+		var pushSum = push1.push('krowa');
+
+		console.log(push1);
+
+// 11.slice()
+
+		//wycina okreslone elementy z tablicy i zwaraca nowa z wyciętymi elementami!
+
+		var slice1 = ["kot", "piesel", "kun", "japko", "koninio"];
+
+		var sliceSum = slice1.slice(1,4);
+
+		console.log(sliceSum);
+
+// 12.every() --
+
+	// czy wszystkie wartosci znajduja sie w jakims przedziale
+
+		var a1 = [2,3,4,4,5,6,1,3];
+
+		function check(age){
+			return adge > 6;
+		}
+
+		function summary(){
+			console.log(a1.every(check));
+		}
+
+
+
+// 13.filter()
+
+		var a1 = [2,3,4,4,5,6,1,3];
+
+		function checkFilter(value){
+			return value > 4;
+		}
+
+		console.log(a1.filter(checkFilter));
+
+
+		var sortNumb = a1.filter(function(bigger){
+			if(bigger > 5){
+				return true;
+			}
+		});
+
+		console.log('sort bigger : '+ sortNumb);
+
+
+// 14.find()
+
+	// wyszukuje pierwszy element z tablicy spełnaijacy dany warunek
+
+		function checkFilter(value){
+			if( value > 4){
+				return true;
+			}
+		}
+
+		console.log('find : '+a1.find(checkFilter));
+
+
+		// 10.isArray()
+		// 13.map()
+		// 15.forEach()
+
+		// 16.reduce()
+
+		// sumuje wartosci z tablicy ???
+
+
+		// 17.reduceRight()
+// 18.reverse()
+
+	// odwraca kolenosc elementow w tablicy	
+
+		// 21.some()
+
+
+// 22.sort()
+
+		// sortownko, przykłady:
+
+		var fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+		//sortowanie alfabetyczne
+		var f1 = fruits2.sort();
+		console.log("sort : "+f1);
+
+	//a) domyślnie sortuje alfabetycznie od a do z/najmniejszej największej liczby
+
+		var points = [40, 100, 1, 5, 25, 10];
+
+		var points2 = points.sort(function(a, b){
+			return a-b;
+		});
+
+		console.log('sorotwanie liczb : '+ points2);
+		console.log('najnizsza liczba to : '+points2[0]);
+
+// 23.splice()
+	// dodaje/usuwa elementy z tblicy i zwraca je 
+
+	// array.splice(index, howmany, item1, ..., itemX);
+	// index - konieczny/rozpoczecie, howmany - ile elementow usunac/ item...- nowe elementy
+
+	var e1 = ["Banana", "Orange", "Apple", "Mango"];
+	var e2 = e1.splice(2, 0, 'kot', 'dzik');
+	console.log('splice : '+ e1);
+
+
+// 24.toString()
+		// zmienia tabele na string
+
+		var d1 = ['asd', 'das', 'zxcz'];
+		var d2 = d1.toString();
+
+		console.log('to string : '+d2);
+
+// 25.unshift()
+
+		//dodaje nowe elementy na poczatku tablicy
+
+		var fruits = ["Banana", "Orange", "Apple", "Mango"];
+		fruits.unshift("Lemon","Pineapple");
+
+// 26.valueOf()
+
+		//zwraca całą tablice z indeksami
+
+		var c1 = [2,3,4,4,5,6,1,3];
+
+		var c3 = c1.valueOf();
+
+		console.log(c3);
+
+
+
+
+		// 2.Array.from() -
+		// 3.Array.isArray() -
+		// 4.Array.observe()
+		// 5.Array.of()
+		// 6.Array.prototype.concat()
+		// 7.Array.prototype.copyWithin()
+		// 8.Array.prototype.entries()
+		// 9.Array.prototype.every()
+		// 10.Array.prototype.fill()
+		// 11.Array.prototype.filter()
+		// 12.Array.prototype.find()
+		// 13.Array.prototype.findIndex()
+		// 14.Array.prototype.forEach()
+		// 15.Array.prototype.includes()
+		// 16.Array.prototype.indexOf()
+		// 17.Array.prototype.join()
+		// 18.Array.prototype.keys()
+		// 19.Array.prototype.lastIndexOf()
+		// 20.Array.prototype.map()
+		// 21.Array.prototype.pop()
+		// 22.Array.prototype.push()
+		// 23.Array.prototype.reduce()
+		// 24.Array.prototype.reduceRight()
+		// 25.Array.prototype.reverse()
+		// 26.Array.prototype.shift()
+		// 27.Array.prototype.slice()
+		// 28.Array.prototype.some()
+		// 29.Array.prototype.sort()
+		// 30.Array.prototype.splice()
+		// 31.Array.prototype.toLocaleString()
+		// 32.Array.prototype.toSource()
+		// 33.Array.prototype.toString()
+		// 34.Array.prototype.unshift()
+		// 35.Array.prototype.values()
+
+
+
+		
+
+
+		</script>
+	</body>
+</html>

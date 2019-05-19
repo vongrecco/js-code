@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<p class="class-1" width="100" height="123" style="position: relative; left: 10px;">Animate1</p>
+		<p>show()</p>
+		<p>stop()</p>
+		<hr>
+
+
+
+	</main>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+				$('.class-1').animate({
+					opacity : '0.5',
+					left : '+=40',
+					height : '30'
+				}, 2000, "linear", function(){
+					console.log('udało się!');
+				});
+			});
+		</script>
+
+		<style>
+		.class-1{
+			
+		}
+			</style>
+	</body>
+</html>

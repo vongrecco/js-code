@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<form action="#" id="form-submit">
+			<input type="text">
+			<input type="submit">
+		</form>
+		<div id="resoult"></div>
+	</main>
+
+	<style>
+		p{
+			font-size:14px;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('#form-submit').submit(function(){
+					var inputValue = $('input[type="text"]').val();
+					$('#resoult').html('to jest wartosc z inputa' + inputValue);
+				});
+				
+			});
+		</script>
+	</body>
+</html>

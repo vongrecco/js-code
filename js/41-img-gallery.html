@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			.img{
+				height: 100px;
+				width: 100px;
+				border:2px solid gray;
+			}
+		</style>
+	</head>
+	<body>
+	<main>
+
+		<div id="main">
+			<img src="img/1.jpg" id="mainImg" style="height:540px; width=540px; border:2px solid gray" />
+			<br>
+			<div id="myDiv" onclick="changeImage(event)">
+				<img src="img/1.jpg" class="img" />
+				<img src="img/2.jpg" class="img" />
+				<img src="img/3.jpg" class="img" />
+				<img src="img/4.jpg" class="img" />
+				<img src="img/5.jpg" class="img" />
+			</div>
+		</div>
+		<script type="text/javascript">
+
+		var images = document.getElementById('#myDiv').getElementsByTagName('img');
+		for (i = 0; i <images.length; i++){
+			images[i].onmouseover = function(){
+				this.style.cursor = "pointer";
+				this.style.borderColor = "red";
+			}
+		}
+
+		function changeImage(event){
+			event = event || window.target;
+
+			var targetElement = event.target || event.srcElement;
+
+			console.log(targetElement);
+
+			if (targetElement.tagName == "IMG"){
+
+				document.getElementById('mainImg').src = targetElement.getAttribute("src");
+			}
+		}
+
+		</script>
+	</main>	
+	</body>
+</html>

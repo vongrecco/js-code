@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<input type="text" id="text"> <button>Click</button>
+		<div id="summary"></div>
+	</main>
+
+	<style>
+
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(event){
+
+				$('#text').keyup(function() {
+					var text = $(this).val();
+					$('#summary').html(text);
+				});
+
+			});
+		</script>
+	</body>
+</html>

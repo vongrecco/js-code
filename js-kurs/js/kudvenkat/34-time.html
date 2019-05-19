@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+
+		<div id="main"></div>
+		<div id="main2"></div>
+		<div id="main3"></div>
+		<script type="text/javascript">
+
+		function myTime(){
+			var time = new Date();
+			var myHour = time.getHours();
+			var myMinutes = time.getMinutes();
+			var mySeconds = time.getSeconds();
+			document.getElementById('main').innerHTML = myHour + " : " + myMinutes + " : " + mySeconds;
+		}
+
+		setInterval(myTime, 1000);
+
+		// 
+
+		var myDate = new Date();
+		var actualDate = myDate.getMonth();
+		var actualDay = myDate.getDay();
+		var actualYear = myDate.getFullYear();
+
+
+		function polishMonth(myMonth){
+			var month = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+			return month[myMonth];
+		}
+
+		function polishDay(myDay){
+			var day = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"];
+			return day[myDay];
+		}
+
+		document.getElementById('main2').innerHTML =  polishDay(actualDay) + " " +polishMonth(actualDate) + " " + actualYear;
+		
+
+
+		</script>
+	</main>	
+	</body>
+</html>

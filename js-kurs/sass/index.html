@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+<sass>
+
+a{
+  :hover{
+    color:red;
+  }
+}
+
+#a{
+  .b{
+    color:red;
+  }
+  &.c{
+    color:red;
+  }
+  .d &{
+    color:red;
+  }
+  > .e{
+    color:red;
+  }
+}
+
+.f{
+  font:{
+    size:12px;
+    weight:bold;
+    family:'Verdana';
+  };
+}
+
+.g{
+  font: 12px/18px 'Verdana';
+}
+
+// zmienne w sass
+
+$color:red;
+$container-width:100px;
+//zadziaa niezaleznie czy uzyjemy potem - czy _ ale tylko w sass
+$height:100px;
+
+.h{
+  width:$container_width;
+  p{
+    color:$color;
+  }
+  width:$container-width;
+  // + - / * powinno si umieszczać w nawiasach, jesli nie podamy jednostki, a wczeniej definiujemy np w px to domyslnie dodaje jako px
+  height:($height + 20);
+}
+
+// tworzenieselektora jako zmiennej
+$selector: a;
+
+#{$selector}{
+  color:$color;
+}
+
+// mozna wykonywac operacje na kolorach, np odejmowac je
+
+p{
+  color:$color - #fafafa;
+}
+
+
+// mixiny
+
+//dekalaracja mixinu
+@mixin block{
+  display:block;
+  margin: 0 auto;
+  float:none;
+  text-align:center;
+}
+
+// wywolanie
+p, a, .i{
+  @include block;
+}
+
+</sass>
+
+
+
+<sass>
+.margins{
+  margin-top:20px;
+  padding-bottom:20px;
+  border:1px solid red;
+}
+
+//przytrzymac kod, bez tworzenia doatkowej klasy mozemy za pomoca %
+
+%border{
+  border-top:1px;
+  color:red;
+}
+
+
+h1{
+// wciaga dane element do wartosci klasy
+  @extend .margins;
+  p{
+    font-size:20px;
+  }
+}
+
+h2{
+  @extend .margins;
+  @extend %border;
+}
+
+.ola{
+  @extend .margins;
+  @extend %border;
+// !optional oznacza, ze jesli nie wykorzystuje tego elementu w zadnym elelemencie na stronie to nie zostanie przemielony do css
+  @extend %border !optional;
+}
+</sass>
+
+
+<sass>
+
+// to - do 
+// trought - do wlacznie
+
+@mixin headings($font-size){
+  @for $i from 1 to 6{
+    h#{$i}{
+      font-size: $font-size - (2 * $i);
+    }
+  }
+}
+
+@include headings(28px);
+
+// podajemy najlpierw liste
+@social: fb, in, gp, twitter;
+
+@mixin list($list){
+// parametr w liscie
+  @each $item in $list{
+    li.scocial-#{$item}{
+      background: url(images/#{$item}.png);
+    }
+  }
+}
+
+// poajemy bez przecinkow bo inaczej potrakotwal by jako parametry
+ul {
+  @include list(fb in gp twitter);
+}
+
+</sass>
+
+<style>
+a :hover {
+  color: red;
+}
+
+#a .b {
+  color: red;
+}
+#a.c {
+  color: red;
+}
+.d #a {
+  color: red;
+}
+#a > .e {
+  color: red;
+}
+
+.f {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Verdana';
+}
+
+.g {
+  font: 12px/18px 'Verdana';
+}
+
+.h {
+  width: 100px;
+  width: 100px;
+  height: 120px;
+}
+.h p {
+  color: red;
+}
+
+a {
+  color: red;
+}
+
+p {
+  color: #050000;
+}
+
+
+</style>
+	</body>
+</html>

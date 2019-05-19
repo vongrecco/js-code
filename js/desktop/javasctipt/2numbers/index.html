@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+		<script>
+			var a = 1;
+			//nie jest liczba - false
+			console.log(isNaN(a));
+
+
+			var b = 3.55;
+			//Zwraca najmniejszą liczbę całkowitą, większą lub równą podanej liczbie
+			console.log(Math.ceil(b));
+
+			// Zwraca największą liczbę całkowitą mniejszą lub równą podanej liczbie
+			console.log(Math.floor(b));
+
+			console.log(Math.round(b));
+
+			var c = Math.random();
+			c = c*10+1;
+			c= Math.floor(c);
+			console.log(c);
+
+			var nr1 = Math.random() * 10 + 1,
+				nr2 = Math.random() * 10 + 1;
+
+				nr1 = Math.round(nr1),
+				nr2 = Math.round(nr2);
+
+
+		if (nr1>nr2) {
+		    console.log("Liczba " + nr1 + " jest większa od liczby " + nr2);
+		} else if (nr2>nr1) {
+		    console.log("Liczba " + nr2 + " jest większa od liczby " + nr1);
+		} else {
+		    console.log("Obie liczby są równe", nr1, nr2);
+		}
+		</script>
+	</body>
+</html>

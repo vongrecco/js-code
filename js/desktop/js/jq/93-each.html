@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<input type="text">
+		<input type="submit" value="add">
+		<br>
+		<div class="name"></div>
+	</main>
+
+	<style>
+
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+
+		jQuery(document).ready(function($){
+
+		function display_array(){
+			$('.name').text('');
+
+			$.each(myNames, function(index, value){
+				$('.name').append(value +' ' + index + ' <br/>');
+				console.log(value);
+			});
+		}
+			var myNames = ['Piotr', 'Marek', 'Ola'];
+			display_array();
+
+			$('input[type="submit"]').on('click', function(){
+				var name = $('.name').val();
+				myNames.push(name);
+				display_array();
+			});
+
+
+		});
+
+		</script>
+	</body>
+</html>

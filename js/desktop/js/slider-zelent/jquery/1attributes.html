@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<p class="class-1">addClass</p>
+		<ul>
+			<li>asd</li>
+			<li>dsa</li>
+			<li>xzc</li>
+			<li>cxz</li>
+		</ul>
+		<p class="class-2" data-title="22">attr</p>
+		<p class="class-2" data-title="24">attr2</p>
+		<p class="class-3" alt="img">attr3</p>
+		<p class="class-4" title="title" src="#">attr4</p>
+		<p class="class-5 check">hasClass</p>
+		<p class="class-6 check">html</p>
+		<input type="checkbox" id="check" checked="checked">
+		<p>removeAttr()</p>
+		<p>removeClass</p>
+		<p>removeProp</p>
+
+
+	</main>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+				$('ul li').addClass(function(index){
+					return "item"+ index;
+				});
+
+				//1
+
+				$('.class-1').addClass('pierwsza klasa');
+
+				//2 get
+				var attr1 = $('.class-2').attr('data-title');
+				console.log(attr1);
+
+				//get all 
+				$('.class-2').each(function(){
+					var attr2 = $(this).attr('data-title');
+					console.log(attr2);
+				});
+
+				//change alt
+				$('.class-3').attr('alt', 'to jest image');
+
+				//change title i src
+
+				$('.class-4').attr({
+					title : 'new title',
+					src : '#codoepoint'
+				});
+
+				if($('.class-5').hasClass('check')){
+					console.log('have class');
+				}
+
+				$('.class-6').html('<span>to atrybut html()!</span>');
+
+				// $('')
+
+				var check = $('input[type="checkbox"]').prop('checked');
+
+				if(check == true){
+					console.log('checked!');
+				}else{
+					console.log('nie checked');
+				}
+			});
+		</script>
+	</body>
+</html>

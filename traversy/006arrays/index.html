@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <a class="button">Asd</a>
+    </div>
+</body>
+
+<script>
+
+// 1. Tworzenie tablic
+
+let tab = [1,2,4,1,4]
+let tab1 = []
+let tab2 = ["jan", "michal", "kot"]
+// let tab3 = [a, b, "kot", 5, {...}]
+
+/* --------------------------------------------*/
+
+// 2. Pierwsza wartość w tablicy ma index 0, druga 1, trzecia 2 i tak dalej, aż do ostatniego indeksu który wynosi długość_tablicy-1 czyli tab.length-1.
+// a. długość tablicy tablica.length
+
+/* --------------------------------------------*/
+
+// 3. odwolanie do elementow tablicy tab[1], tab[0], tab[tab.length-1]
+
+/* --------------------------------------------*/
+
+// 4. pętla po tablicy
+
+tab = ["a", "b", "c"]
+
+for (let a = 0; a < tab.length; a++){
+	console.log("licznik pętli"+a);
+	console.log("element tablicy: "+ tab[a]);
+} 
+
+/* --------------------------------------------*/
+
+// 5. push() - dodawanie elementów do tablicy
+// a)push() dodaje element na koniec tablicy
+tab =[1,2,3];
+tab.push(5);
+console.log("push() : " + tab);
+
+// b) można ustawić element na danym elemencie tablicy
+tab[2] = 4;
+
+// c) dodaj dwa elementy do tablicy
+
+tab = ["jan", "kon", "kot"];
+
+tab.push("pies", "kuna");
+console.log("push two elements: " + tab);
+// lub
+// tab.push("pies");
+// tab.push("kuna");
+
+// d) liczenie wszystkich znaków w tablicy
+	for(let i = 0; i < tab.length; i++){
+		//charAt - pobiera znak z danej pozycji
+		//Metoda substr(start, dlugosc) służy do pobierania kawałka tekstu. Pierwszym jej parametrem jest początek pobieranego kawałka tekstu, a drugi opcjonalny wskazuje długość pobieranego tekstu. 
+		// zmienna zawierająca aktualny element tablicy
+		// pobieram pierwszy znak i zmieniam go na duza litere, wycinam pierwszą literę i dodaję
+		let name = tab[i];
+		console.log(name.charAt(0).toUpperCase() + name.substr(1));
+	}
+
+// e) liczenie wszystkich liter w tablicy
+
+let words = ["kot", "świnka", "pies", "chomik", "wróbelek", "szczupakko"];
+let sum = 0;
+for(let i = 0; i < words.length; i++){
+	//dodaje kolejne policzone elementy tablicy
+	sum += words[i].length;
+}
+console.log(sum);
+
+// f) tablice wielowymiarowe 
+// to tablice zawierające kolejne tablice, lub też obiekty
+
+// const tab = [];
+// tab[0] = ["Jan", 182];
+// tab[1] = ["Piter", 190];
+// tab[2] = ["Tomasz", 188];
+
+// cosnole.log( "imie: "+ [tab[0][0] + "wzrost: "+ tab[0][1]); 
+
+// wyswietli:
+// imie: Jan wzrost: 182
+
+
+/* --------------------------------------------*/
+
+// 6) pop() - usuwa element na koncu tablicy i zwraca go w wyniku
+
+tab = ["ala", "ma", "kota"];
+const elDeleted =  tab.pop();
+console.log('pop() : ' + elDeleted);
+
+/* --------------------------------------------*/
+
+// 7) unshift - dodawanie elementu na początku tablicy
+// unshift(el1, el2*...) wstawia nowy element do tablicy na jej początku, po czym zwraca nową długość tablicy. Elementów wstawianych można podać kilka, albo jeden.
+
+tab = ['Marcin', 'Ania', 'Agnieszka'];
+tab.unshift('Bartek');
+tab.unshift('Piotrek', 'Paweł');
+
+console.log("unshift : " + tab); //[Piotrek, Paweł, Bartek, Marcin, Ania, Agnieszka]
+
+/* --------------------------------------------*/
+
+// 8) shift() natomiast usuwa pierwszy element z tablicy i zwraca jego wartość:
+tab.shift();
+console.log('shift : ' + tab);
+
+/* --------------------------------------------*/
+
+// 9. join(,)Łączenie elementów tablicy
+
+// Array.join(separator) służy do łączenia kolejnych elementów tablicy w jeden tekst. Opcjonalnym parametrem tej metody jest separator - tekst, który będzie oddzielał kolejne elementy w utworzonym tekście. Jeżeli go nie podamy będzie użyty domyślny znak przecinka:
+
+// const table = ["a","b", "c"]
+
+let cars = ["Mercedes", "Audi", "BMW"];
+console.log( "join(:) : " + cars.join(', ') ); //"Mercedes, Audi, BMW"
+
+// b) można użyć do pisania tekstu wielolinijkowego:
+
+//zamiast
+// let text = "Ala ma kota<br>"
+// text += "a kot ma Alę<br>"
+// text += "Ala go kocha<br>"
+// text += "a kot ją wcale"
+// console.log(text);
+
+
+//można
+let text = ["Ala ma kota", "a kot ma Alę", "Ala go kocha", "a kot ją wcale"];
+console.log(text.join("<br>"));
+
+
+/* --------------------------------------------*/
+
+// 10. reverse() - odwracanie kolejności elementow tablicy
+
+tab = ["numer 1" , "numer 2" , "numer 3" , "numer 4"];
+console.log('przed reverse() : ' + tab); //Przed: numer 1,numer 2,numer 3,numer 4
+tab.reverse()
+console.log('Po reverse() : ' + tab); //Po: numer 4,numer 3,numer 2,numer 1
+
+
+
+/* --------------------------------------------*/
+
+// 11.  sort() - służy do sortowania elementów tablicy
+// Metoda ta przekształca równocześnie tablicę, na której została wykonana.
+
+// Standardowo Javascript segreguje tablice leksykalnie (czyli tak jak w książce telefonicznej) traktując liczby jak litery.
+// let tab = ["as", "bs", "za"]
+// tab.sort();
+
+// Powoduje to w wielu przypadkach nieoczekiwane rezultaty - na przykład 1200 będzie mniejsze od 300 (bo liczy się pierwsza cyfra), 1.3 będzie większe od 13 itp.
+
+// !Aby filtrować elementy wg. własnych założeń należy skorzystać z dodatkowego parametru. Parametr ten jest nazwą naszej funkcji sortującej (lub funkcją anonimową, której też możemy użyć). Do funkcji tej przekazane zostaną 2 parametry - dwa kolejne porównywane ze sobą elementy.
+
+// function porownaj(A, B) {
+//     if (A jest mniejsze od B) {return -1}
+//     if (A jest większe od B) {return 1}
+//     //jeżeli A równa się B
+//     return 0
+// }
+
+//funkcja sortująca
+function compare(a,b){
+  return a-b;
+}
+
+tab = [100, 320, 10, 25, 310, 1200, 400];
+
+// console.log('działa');
+
+tab2 = tab.sort();
+// // wyświetli coś takiego
+console.log("tab.sort() : " + tab2);
+
+// // funckję sortującą podajemy w paramametrze
+let tab3 = tab.sort(compare);
+// // wyświetli posortowaną tablicę od najmniejszej liczby do największej
+console.log("tab.sort(parametr) : " + tab3);
+// //[10, 25, 100, 310, 320, 400, 1200]
+
+
+
+/* --------------------------------------------*/
+
+// 12. text.split(' ') - łączenie i sortowanie tablic
+
+text = "Marcin Ania Basia Patryk Beata Aneta";
+
+let namesArr = text.split(' '); //korzystamy z metody, która dzieli tekst za pomocą parametru w wyniku dostajemy tablicę
+console.log("split() : " + namesArr.sort());
+
+// const textSorted = namesArr.join(' '); //łączymy posortowaną tablicę
+// console.log(textSorted); //"Aneta Ania Basia Beata Marcin Patryk"
+
+
+/* --------------------------------------------*/
+
+// 13. Array.concat(array1, array2...) - łączenie dwóch tablic
+
+// Aby połączyć ze sobą kilka tablic wykorzystamy metodę Array.concat(array1, array2...), która jako parametr przyjmuje jedną lub kilka tablic:
+
+// // deklaracja 3 tablic
+// const animals = ["Pies", "Kot"];
+// const animals2 = ["Słoń", "Wieloryb"];
+// const animals3 = ["Chomik ninja", "Świnka morderca"];
+
+// // dodawanie tablic za pomocą concat
+// let bigTable = animals.concat(animals2, animals3);
+
+// console.log(bigTable);
+
+
+
+/* --------------------------------------------*/
+
+// 14. Array.slice(od, do*) - służy do 
+
+// Metoda Array.slice(od, do*) tak samo jak przy stringach, zwraca nową tablicę zawierającą wycięte elementy z tablicy na której została wywołana. Metoda ta nie modyfikuje tablicy, na której jest wywoływana.
+
+// const tab2 = tab.slice(0, 1)
+tab = ["numer 4","numer 3","numer 2","numer 1"];
+console.log("tab.slice(0, 1) : " + tab.slice(0, 2));
+
+
+
+/* --------------------------------------------*/
+
+// 15. splice()
+
+// Podobną do powyższej metody jest metoda splice(od, ile_wyciąć, elementy_wstawiane). Podstawowa różnica jest taka, że metoda splice modyfikuje tablicę na której jest wywoływana.
+// Parametr ile_wyciąć mówi ile elementów powinno być usuniętych z tablicy. Jeżeli podamy 0, wtedy nic nie zostanie z tablicy usunięte. Opcjonalne parametry elementy_wstawiane to elementy, które po usunięciu danego elementu z tablicy, zostaną na jego miejsce wstawione. Podajemy je jeden po drugim. Metoda ta zmienia tablicę na której została wywołana:
+
+// const tab = ['Marcin', 'Ania', 'Agnieszka'];
+ 
+// tab.splice(1, 1);
+// console.log(tab); // wypisze "Marcin, Agnieszka"
+
+// tab.splice(1, 1, 'Monika', 'Magda') //usuwam z wcześniejszego "Agnieszka" i wstawiam na jej miejsce inne panie
+// // console.log(tab); //wypisze "Marcin, Monika, Magda"
+
+
+/* --------------------------------------------*/
+
+// 16. usuwanie dowolnego elementu tablicy za pomocą splice
+
+// const tab = ['Marcin', 'Ania', 'Agnieszka', 'Monika'];
+// const deletedEl = tab.splice(2, 1);
+// console.log(tab); //wypisze 'Marcin', 'Ania', 'Monika'
+// console.log(deletedEl); //wypisze 'Agnieszka'
+
+
+/* --------------------------------------------*/
+
+// 17. dodawanie elementu tablicy w dowolnym miejscu - splice
+
+// const tab = ['Marcin', 'Ania', 'Agnieszka', 'Monika'];
+// tab.splice(1, 0, 'Piotr'); //1 - który index, 0 - ile usunąć, 'Piotr' - element dodawany
+// console.log(tab); //[Marcin, Piotr, Ania, Agnieszka, Monika]
+
+/* --------------------------------------------*/
+
+// 18 WYSZUKIWANIE W TABLICACH
+
+console.log(' *WYSZUKIWANIE W TABLICACH* ');
+
+// 1) tylko tablica stringów - Array.indexOf(str)
+tab = ['Marcin', 'Ania', 'Agnieszka', 'Monika'];
+console.log("Array.indexOf(str) : " + tab.indexOf("Marcin"));
+// a) zwraca index wyszukanego stringu, jeśli go nie ma to -1
+
+//inaczej
+// if (tab.indexOf('Ania') !== -1) {
+//     console.log('Ania występuje w tablicy pod indexem ' + tab.indexOf('Ania'));
+// }
+// b) druga, lepsza metoda - Array.find(fn(el, i*, array*), this*)
+
+
+tab = [
+    { name : 'Marcin', age: 18 },
+    { name : 'Ania', age: 16 },
+    { name : 'Agnieszka', age: 16}
+];
+
+// 2) metoda find zwraca pierwszy element pasujący do równania
+let findUser = tab.find(function(el) {
+    return el.age > 15
+});
+
+console.log("tab.find(function(el)");
+console.log( {findUser}) //{name : 'Ania', age: 16 }
+
+
+/* --------------------------------------------*/
+
+// 19).Pętal po tablicy za pomocą for of
+
+// klasyczna pętla
+// const tab = ['Marcin', 'Ania', 'Agnieszka', 'Piotrek', 'Grześ', 'Magda'];
+
+// for (let i=0; i<tab.length; i++) {
+//     console.log(tab[i]);
+// }
+
+// a) for of wprowadzona w es6, piętla po tablicy
+
+tab = ["ala","ma","pampkę","ładnego"];
+for (let el of tab) {
+    console.log("pętla for of : " + el + " " + tab[el]);
+}
+
+
+/* --------------------------------------------*/
+
+// 20.
+
+// !! for(let i in table)... pobiera pod i indexy
+
+// b) pobranie wszystkich przyciskow button
+//const buttons = document.querySelectorAll('button');
+// for (let btn of tab) {
+//     console.log(btn);
+// }
+
+// c) pętla po wszystkich literach
+// txt = "ALa ma kota";
+// for (let i of txt) {
+//     console.log(i.toUpperCase());
+// }
+
+/* --------------------------------------------*/
+
+// 21. pętla forEach
+
+// Pierwszą z omawianych metod jest Array.forEach(fn(el, i*, array*)
+
+// Metoda ta przyjmuje jako pierwszy parametr funkcję - callback, do której będzie przekazywać 3 właściwości:
+// - dany element z tablicy (z pominięciem pustych),
+// - aktualny licznik pętli (opcjonalny)
+// - aktualną tablicę (opcjonalny)
+
+// Drugi opcjonalny parametr forEach wskazuje na aktualne "this"
+
+// Przykład 1:
+
+tab = ['Marcin', 'Ania', 'Agnieszka'];
+
+
+// // nazwa tabeli/forEach/parametr tabeli - dany element tabeli
+tab.forEach(function(el){
+  console.log("forEach : " + el.toUpperCase());
+})
+
+// Przykład 2:
+tab.forEach(function(el,i){
+// aktualny element tablicy/ i = aktualny licznik pętli
+  console.log("fE : " + el +": index:"+ i);
+}) 
+
+// wyświetli:
+// "Marcin: i:0"
+// "Ania: i:1"
+
+
+// Przykład 3: - zlicza znaki we wszystkich elementach tablicy
+
+// // zmienna z ilością znaków w tablicy
+// let sum = 0;
+
+// tab.forEach(function(el){
+// // zmiena +=ilość znaków w aktualnym elemencie
+//   console.log(sum+=el.length);
+// })
+// console.log(sum)
+
+
+/* --------------------------------------------*/
+
+// 22. sprawdzanie elementów tablicy za pomocą every i some
+
+// Metody Array.every(fn(el, i*, array*) i Array.some(fn(el, i*, array*) służą do sprawdzania czy wszystkie lub czy kilka elementów w tablicy spełnia dany warunek.
+// Można je przyrównać do && i || w instrukcjach warunkowych.
+
+// Metoda every() zwróci prawdę, kiedy każdy element tablicy będzie pasował do danego warunku (czyli tak jak && w ifach).
+
+// Metoda some() zwróci prawdę, jeżeli dowolny z elementów będzie pasował do przyrównania (czyli ||).
+// Obie metody przyjmują takie same parametry jak forEach.
+
+// Przykład 1:
+
+// const tab = [1,3,5,8,9];
+
+// let all = tab.every(function(el){
+//   return el % 2 === 0;
+// }); // false
+
+// let some = tab.some(function(el){
+//     return el % 2 === 0;
+// }); // true
+
+
+/* --------------------------------------------*/
+
+// 23. map()
+
+// Metoda map() robi pętlę po tablicy i każdorazowo zwraca nowy element tablicy. W wyniku po zakończeniu całej pętli zwracana jest nowa tablica z taką samą liczbą elementów jaką miała tablica na której ta metoda była wykonana:
+
+// const tab = ['Marcin', 'Ania', 'Agnieszka'];
+// const tab2 = tab.map(function(el, i) {
+//     return el.toUpperCase()
+// });
+
+// console.log(tab); //[Marcin, Ania, Agnieszka]
+// console.log(tab2); //[MARCIN, ANIA, AGNIESZKA]
+
+
+/* --------------------------------------------*/
+
+// 24. filter()
+
+// Bardzo często będziemy chcieli przefiltrować daną tablicę zwracając tylko elementy, które pasują do danego warunku. Bardzo przydatną funkcją jest tutaj funkcja Array.filter(fn).
+// Funkcja filter() robi pętlę po danej tablicy i w wyniku zwraca nową tablicę, która zawiera wszystkie elementy, przy których zostało zwrócone true:
+
+let our = [1, 2, 3, 4, 5, 6];
+
+let table = our.filter(function(el){
+  return el % 2 === 0;
+});
+
+console.log("our.filter(function(el){ } : " + table);
+
+/* --------------------------------------------*/
+
+// 25 MAX
+
+function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}
+// You can use Math.max.apply to find the highest number in an array:
+
+
+/* --------------------------------------------*/
+
+// 26MIN
+
+// Using Math.min() on an Array
+// You can use Math.min.apply to find the lowest number in an array:
+
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+
+/* --------------------------------------------*/
+
+// 27. find
+
+// Array.find()
+// The find() method returns the value of the first array element that passes a test function.
+
+// This example finds (returns the value of) the first element that is larger than 18:
+
+// Example
+// var numbers = [4, 9, 16, 25, 29];
+// var first = numbers.find(myFunction);
+
+// function myFunction(value, index, array) {
+//   return value > 18;
+// }
+
+
+
+/* --------------------------------------------*/
+
+// 28. średnia z elementów tablicy
+
+// Przykład 1:
+
+// function tableAverage(arr) {
+//     let sum = 0;
+//     for (let i=0; i<arr.length; i++) {
+//         sum += arr[i];
+//     }
+
+//     return sum / arr.length;
+// }
+
+
+//reduce Reduce przyjmuje tablicę, transformuje i zwraca jedną wartość.
+
+const arr = [2, 6, 10];
+
+arr.reduce((x, y) => x + y) // 18  
+
+// Przykład 2:
+
+// const tab = [1,2,3,4,5];
+// const avg = tab.reduce(function(a,b) {
+//     return a + b;
+// }) / tab.length;
+
+
+// Przykład 3:
+
+// const tab = [1,2,3,4,5];
+// const avg = tab.reduce((a,b) => a + b) / tab.length;
+
+
+
+/* --------------------------------------------*/
+
+// 29. Największa i najmniejsza wartość elementu w tablicy
+
+// Tu także musimy skorzystać z własnego intelektu.
+// Jak sprawdzić która wartość w tablicy jest największa? Podstawiamy pod zmienną max pierwszy element tablicy. Wykonujemy pętlę po pozostałych elementach tablicy. Jeżeli dany element jest większy od zmiennej max, to pod tą zmienną podstawiamy wartość tego elementu. I tak do końca tablicy... Tak samo czynimy w przypadku znajdowania najmniejszej wartości. Różnica polega na sprawdzaniu, czy wartość sprawdzanego elementu jest mniejsza od zmiennej mins
+
+
+// function tableMax(arr) {
+//     let max = arr[0];
+//     for (let i=1; i<arr.length; i++) {
+//         max = (arr[i] > max)? arr[i] : max;
+//     }
+//     return max;
+// }
+
+// function tableMin(arr) {
+//     let min = arr[0];
+//     for (let i=1; i<arr.length; i++) {
+//         min = (arr[i] < min)? arr[i] : min;
+//     }
+//     return min;
+// }
+
+
+// const tab = [2, 1, 2, 3, 6, 7, 3];
+// console.log( tableMax(tab) );
+// console.log( tableMin(tab) );
+
+
+/* --------------------------------------------*/
+
+// 30. reduce() ???
+
+// Za pomocą funkcji reduce(function(prev, next, i*, arr*) {}, start*) możemy wykonywać operacje na tablicy "redukując ją", w wyniku uzyskując jakiś wynik.
+
+// Działanie tej funkcji jest następujące: w pierwszej iteracji pod pierwszy parametr prev wstawiany jest pierwszy element tablicy, a pod next drugi. Funkcja zwraca jakiś wynik. W kolejnej iteracji jest od podstawiany pod prev, a kolejny element w tablicy pod next. Znowu zostaje zwrócony wynik, który w kolejnej iteracji wstawiany jest w miejsce prev, a pod next znowu wstawiany jest kolejny element tablicy.
+
+// Poza pierwszym parametrem, która jak w powyższych metodach jest naszą funkcją, możemy też podać początkową wartość, od której zostanie rozpoczęte liczenie (można powiedzieć, że w 0 iteracji pod prev zostanie wstawiony ta startowa wartość, a pod next wstawiony zostanie pierwszy element tablicy)
+
+// const tab = [1, 2, 3, 4];
+// const result = tab.reduce(function(prev, next) {
+//     return prev + next;
+// });
+// //1 iteracja => prev === 1, next === 2
+// //2 iteracja => prev === 3, next === 3
+// //3 iteracja => prev === 6, next === 4
+// //wynik == 10
+
+/* --------------------------------------------*/
+
+// 31. findIndex - zwraca index elementu który jako pierwszy zwróci true
+
+
+var ages = [3, 10, 18, 20];
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+function myFunction() {
+  console.log(ages.findIndex(checkAdult));
+}
+
+/* --------------------------------------------*/
+
+
+/* --------------------------------------------*/
+
+// 31. łańcuchowość metod ???
+
+// Method chaining (łańcuchowość metod) to sposób odpalania kolejnych metod (funkcji), które zapisujemy po kropce. Technika ta tyczy się nie tylko tablic, ale całego JS.
+
+// Każda metoda (funkcja) W JS coś zwraca. Jeżeli taka zwrócona wartość pasuje dla kolejnej metody, możemy tą metodę od razu odpalić po kropce:
+
+// Przykład 1:
+
+// const text = "Ala ma kota";
+
+// text.toUpperCase().substr(0, 3).length //kolejne metody odpalamy po kropce
+
+// //czasami trzymanie wszystkiego w jednej linii nie jest dobrym rozwiązaniem
+// text
+//     .toUpperCase()
+//     .substr(0, 3)
+//     .length
+
+
+// Przykład 2:
+
+// const tab = ['Marcin', 'Ania', 'Agnieszka'];
+
+// const newTab = tab.map(function(el) { //zwracam nową tablicę...
+//     return el.toUpperCase()
+// }).filter(function(el) { //więc mogę ją odfiltrować
+//     return el[el.length-1].toUpperCase() === "A"
+// }).map(function(el) { //map też może służyć do iteracji
+//     return el + "!";
+// }).forEach(function(el) {
+//     console.log(el);
+// }) //forEach nie zwraca tablicy więc nie mogę już tutaj działać jak na tablicy
+
+// consle.log(newTab)
+
+
+// ZADANIA
+
+
+// let tab1 = [1,6,3,5,2,1,7,4,3,7];
+
+let filtr = tab1.filter(function(el){
+  return el !== 2;
+});
+
+console.log(filtr);
+
+// > [1, 6, 3, 5, 1, 7, 4, 3, 7]
+
+/* --------------------------------------------*/
+
+var personList = [
+  { first: 'Ola', last:'Dzido', year: 1992, obrona: 2000},
+  { first: 'Anna', last:'Lipiec', year: 1994, obrona: 2004}, 
+  { first: 'Jonna', last:'Wrzesien', year: 1995, obrona: 2005}, 
+  { first: 'Kasia', last:'Maj', year: 1996, obrona: 2004}, 
+  { first: 'Ada', last:'Maj', year: 1993, obrona: 2001}, 
+  { first: 'Paula', last:'Marzec', year: 1992, obrona: 2000}, 
+  { first: 'Anna', last:'Luty', year: 1991, obrona: 2012}, 
+  { first: 'Monika', last:'Kwiecien', year: 1989, obrona: 2012}
+];
+
+var secondName = ['Ola ,Dzido','Anna, Lipiec', 'Jonna, Wrzesien', 'Kasia, Maj', 'Ada, Maj', 'Paula, Marzec'];
+
+// born in 90 - 93
+
+var born = personList.filter(function(personsListf){
+  if(personsListf.year >= 1990 && personsListf.year < 1993){
+    return true;
+  }
+})
+
+console.table(born);
+
+// last and first name
+
+var fullName = personList.map(personLists => personLists.first + ' ' + personLists.last);
+
+console.log(fullName);
+
+// 3 sort from oldest to younges
+
+// var sortowanie = personList.sort(function(a,b){
+//   if(a.year > b.year){
+//     return 1;
+//   }else{
+//     return -1;
+//   }
+// });
+
+var sortowanie = personList.sort((a,b) => a.year > b.year ? 1 : -1);
+
+console.table(sortowanie);
+
+
+// od narodzin do obrony
+
+var totalYears = personList.reduce((total, personLists) =>{
+  return total + (personLists.obrona - personLists.year);
+}, 0);
+
+console.log(totalYears);
+
+
+// sort second array by second name
+
+// var alpha = secondName.sort(function(lastOne, nextOne){
+//   console.log(lastOne);
+// });
+
+
+    </script>
+</html>

@@ -1,0 +1,17 @@
+[
+	{
+		"id":1,
+		"name":"Riczard",
+		"email":"rmail@wp.pl"
+	},
+	{
+		"id":2,
+		"name":"Jon",
+		"email":"jmail@wp.pl"
+	},
+	{
+		"id":3,
+		"name":"Ron",
+		"email":"rmail@wp.pl"
+	}
+]

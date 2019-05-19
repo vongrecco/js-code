@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<button id="bigger">Bigger</button>
+		<button id="smaller">Smaller</button>
+
+		<p>Ala ma kota</p>
+		<p>Ala nie ma kota</p>
+	</main>
+
+	<style>
+		p{
+			font-size:14px;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				function resizeFont(element, size){
+					var current = parseInt(element.css('font-size'));
+
+					if(size == 'smaller'){
+						var newSize = current - 2;
+					} else if(size == 'bigger'){
+						var newSize = current + 2;
+					}
+					element.css('font-size', newSize);
+				}
+
+				$('#bigger').on('click', function(){
+					resizeFont($('p'), 'bigger');
+				});
+
+				$('#smaller').on('click', function(){
+					resizeFont($('p'), 'smaller');
+				});
+
+			});
+		</script>
+	</body>
+</html>

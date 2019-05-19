@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <!-- <link href="style.css" rel="stylesheet"> -->
+
+</head>
+<body>
+<header>Game</header>
+
+    <div class="score-board">
+      <div id="user-label">user</div>
+      <div id="comp-label">comp</div>
+      <span class="user-score">0</span>
+      <span class="comp-score">0</span>
+    </div>
+    <div class="result">
+      <h2>Papers covers rock! You win!</h2>
+    </div>
+    <div class="choices">
+      <div class="choice" id="r">Rock</div>
+      <div class="choice" id="p">Papper</div>
+      <div class="choice" id="s">Scissors</div>
+    </div>
+    <div id="action-message">asd</div>
+
+</body>
+   
+    <script type="text/javascript">
+
+        let userScore = 0;
+        let compScore = 0;
+
+        const userScore_div = document.querySelector(".user-score");
+        const compScore_div = document.querySelector(".comp-score");
+
+        const result_div = document.querySelector(".result");
+        const board_div = document.querySelector(".score-board");
+
+        const r_div = document.getElementById("r");
+        const p_div = document.getElementById("p");
+        const s_div = document.getElementById("s");
+
+
+        function computerChoice(){
+            const choice = ["r", "p", "s"]
+            const randomChoice = Math.floor(Math.random() * 3 );
+            return choice[randomChoice];
+        }
+
+        function win(){
+            userScore++;
+            userScore_div.innerHTML = userScore;
+        }
+
+        function lose(){
+            compScore++;
+            compScore_div.innerHTML = compScore;
+        }
+
+
+        function draw(){
+            userScore++;
+            console.log("win" + userScore);
+        }
+
+        function game(userChoice){
+            const compChoice = computerChoice();
+            console.log(compChoice + " : " + userChoice)
+
+            switch( compChoice + userChoice){
+                case "rs":
+                case "sp":
+                case "pr":
+                   win();
+                break;
+
+                case "sr":
+                case "ps":
+                case "rp":
+                   lose();
+                break;
+
+                case "ss":
+                case "pp":
+                case "rr":
+                   draw();
+                break;
+                default: 
+                console.log("nic");      
+            }
+
+        }
+
+        function main(){
+          r_div.addEventListener('click', function(){
+             game("r");
+          });
+          
+          p_div.addEventListener('click', function(){
+             game("p");
+          });
+          
+          s_div.addEventListener('click', function(){
+             game("s");
+          });
+        }
+
+        main();
+
+    </script>
+</html>

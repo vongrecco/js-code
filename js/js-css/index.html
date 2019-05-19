@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <style type="text/css">
+        h2{
+            color:#000;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <a id="button">Asd</a>
+        <a class="button2">Asd</a>
+
+        <!-- odczyt stylu z elementu -->
+        <div class="module">
+            <h3 class="module-title">Przykładowa nazwa artykułu</h3>
+            <div class="module-content" style="display:none">
+                Lorem ipsum dolor sit amet...
+            </div>
+            <button type="button" class="button3 module-button" id="testShowContent">Pokaż treść</button>
+        </div>
+
+        <div class="box">
+            <h2>Ala ma kota</h2>
+            <div class="button4">Click me</div>
+        </div>
+
+    </div>
+</body>
+   
+    <script type="text/javascript">
+        let btn = document.getElementById('button');
+        btn.style.color = "red";
+        btn.style.background = "#d2d2d2";
+
+        let btn2 = document.querySelector('.button2');
+        btn2.addEventListener('click', function(){
+            this.style.color = "green";
+            this.style.background = "red";
+        });
+
+/* Zauważ jak odwołujemy się do właściwości CSS. Jeżeli właściwość składa się z jednego słowa, to zapisujemy ją tak jak w css. Jeżeli właściwość składa się z kilku słów oddzielonych myślnikiem, wtedy dla takiej właściwości musimy zastosować zapis CamelCase
+
+
+
+css
+font-size : 1rem;
+js
+el.style.fontSize = "1rem";
+el.style['font-size'] = "1rem";
+
+
+css
+background : linear-gradient(#fff, #ddd);
+js
+el.style.background = "linear-gradient(#fff, #ddd)";
+el.style['background'] = "linear-gradient(#fff, #ddd)";
+
+
+css
+background-color : rgba(255,255,255,0.5);
+js
+el.style.backgroundColor = "rgba(255,255,255,0.5)";
+el.style['background-color'] = "rgba(255,255,255,0.5)";
+
+
+css
+border-width : 2px
+js
+el.style.borderWidth = "2px"
+el.style['border-width'] = "2px";
+
+*/
+const btn3 = document.querySelector(".module-button");
+const textCnt = btn3.previousElementSibling;
+
+btn3.addEventListener("click", function() {
+    if (textCnt.style.display === "none") {
+        textCnt.style.display = "block";
+    } else {
+        textCnt.style.display = "none";
+    }
+});
+
+ // window.getComputedStyle(elem, pseudoEl*), która zwraca przeliczone przez przeglądarkę stylowanie. Pierwszy parametr tej metody określa badany element, drugi - opcjonalny pozwala pobierać style dla pseudo elementów. Jeżeli nie chcemy badać pseudo elementów, wtedy używamy null, lub go pomijamy:
+
+ let title = document.querySelector('h2');
+ let titleStyle = window.getComputedStyle(title);
+ let getTitleStyle = titleStyle.getPropertyValue('opacity');
+ console.log("style nagłówka: " + getTitleStyle);
+ console.log( "kolor nagłówka: " + getTitleStyle['color'] );
+
+/* drugi parametr określa pseudoklasę, np:
+
+const module = document.querySelector('.module');
+const styleComputed = window.getComputedStyle(textCnt, ':before');
+
+console.log(styleComputed.backgroundColor);
+
+*/
+
+/* 
+
+operacje na klasach css
+
+const btn = document.querySelector('.btn');
+
+btn.classList; //zwraca pseudotablicę z nazwami klas
+btn.classList.add('btn'); //dodaję klasę .btn
+btn.classList.remove('btn'); //usuwam klasę .btn
+btn.classList.toggle('btn'); //przełączam (dodaję lub usuwam) klasę .btn
+btn.classList.contains('btn'); //sprawdzam czy dany element ma klasę .btn
+
+
+Właściwość className zwraca nam jako tekst wszystkie klasy jakie posiada dany element:
+const btn = document.querySelector('.btn');
+console.log(btn.className); //btn btn-primary
+
+*/
+
+    </script>
+</html>

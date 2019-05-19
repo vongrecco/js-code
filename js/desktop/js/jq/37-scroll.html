@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<textarea name="myarea" id="" cols="30" rows="10">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos debitis sequi mollitia ex nemo fugit neque repellendus tempora doloremque veritatis qui, possimus, iure, corporis ullam ratione praesentium vero quaerat. Ut ipsum quidem amet quisquam eum accusamus asperiores ab, adipisci architecto facere doloremque. A maxime suscipit nobis, eaque omnis saepe sequi earum porro illo quidem facere obcaecati hic quae minus deserunt.
+		</textarea>
+		<div class="text"></div>
+	</main>
+
+	<style>
+		p{
+			font-size:14px;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('textarea[name="myarea"]').scroll(function(){
+					var scroll_position = $('textarea[name="myarea"]').scrollTop();
+
+					$('.text').html('Twoja pozycja to ' + scroll_position);
+					// console.log('Twoja pozycja to '+ scroll_position); 
+				});
+				
+			});
+		</script>
+	</body>
+</html>

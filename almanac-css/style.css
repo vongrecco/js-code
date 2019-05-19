@@ -1,0 +1,48 @@
+span{
+  color:red;
+}
+
+@media print {
+  p.windows {
+    widows: 3;
+  }
+}
+
+.word-break{
+  word-break: break-all;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 14px;
+  text-align:center;
+}
+
+.word-spacing{
+  word-spacing: 1em;
+}
+
+.wrap {
+  word-spacing: 1em;
+  padding: 1em 0 0;
+}
+.module {
+  background: lightsteelblue;
+  height: 5em;
+  width: 5em;
+  display: inline-block;
+  /* reset word-spacing so that text inside this box is spaced normally */
+  word-spacing: normal;
+}
+
+
+.writing-mode{
+  writing-mode:vertical-rl;
+}
+
+
+.vertical-align{
+
+}
+
+p.visibility{
+  
+}

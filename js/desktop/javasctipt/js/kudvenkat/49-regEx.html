@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+	<main>
+		<script type="text/javascript">
+			var string = "Tom contact number is 1011011010. His age is 35.";
+			string += "Mark contact number is 8912398912. His age is 45";
+
+			//wyszukuje w wyrazenie w stringu
+			document.write(string.match(/\d+/g)); 
+			// zastąpuje wyrazenie tekstem
+			document.write(string.replace(/\d+/g, 'xxx')); 
+			// tworzy tablice, string odddzielone przecinkami 
+			document.write(string.split(/\d+/g)); 
+			// pozycja pierwszego wyszukanego elementu, jesli nie znajdzie zadnego to zwraca -1
+			document.write(string.search(/\d+/)); 
+
+
+
+		</script>
+	</main>	
+	</body>
+</html>

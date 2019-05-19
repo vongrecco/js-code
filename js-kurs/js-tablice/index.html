@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <a class="button">Asd</a>
+    </div>
+</body>
+   
+    <script type="text/javascript">
+        let tab1 = ["Ala", "Ola", "Iga"];
+        console.log(tab1.length);
+
+        // ostatni element
+
+        let a = tab1[tab1.length-1];
+        console.log(a);
+
+        // pętla po talblicy
+
+        for( let b = 0; b < tab1.length; b++){
+            console.log(b + " imię to: "+tab1[b]);
+        }
+
+        // dodawanie elementów do tablicy za pomocą push
+
+        tab1.push('Syliwa');
+        console.log(tab1[tab1.length-1]);
+
+
+        // dodanie elementu po indeksie
+
+        tab1[tab1.length] = "Ines";
+        console.log(tab1[tab1.length-1]);
+
+        tab1.push('kot', 'pies');
+
+        for(let c = 0; c < tab1.length; c++){
+            console.log('imiona to: ' + tab1[c].charAt().toUpperCase() + tab1[c].slice(1) );
+        }
+
+        // liczba znaków w tablicy
+
+        let sum = 0;
+
+        for(let c = 0; c < tab1.length; c++){
+            sum += tab1[c].length;
+        }
+
+        console.log(sum);
+
+        // tablice wielowymiarowe
+
+        let tab2 = [];
+
+        tab2[0] = ['Marcin' , '183'];
+        tab2[1] = ['Ania' , '173'];
+        tab2[2] = ['Agnieszka' , '170'];
+
+        console.log("imię: "+tab2[0][0] + ", wzrost: "+ tab2[0][1]);
+
+
+        // łącznie elementów tablic za pomocą join() - opcjonalny parametr określa czym będą rozdzielane dane elementy, domyślnie jest to przecinek
+
+        tab3 = ["Ala", "Jola", "Iga"];
+        console.log(tab3.join(' + '));
+
+        // odwracanie kolejnosci elementow - reverse()  
+
+        let tab4 = ["nr 1", "nr 2", "nr 3"];
+        console.log(tab4.reverse());
+
+
+        // sortowanie tablicy za pomocą metody sort()
+
+
+        const tab5 = ['Zygi', 'Marcin', 'Ania', 'Jaco', 'Piotrek', 'Grześ'];
+        console.log(tab5.sort());
+
+
+        // sortowanie wg. włąsnych wytycznych
+
+        const tab6 = ["1", "11", "5", "10", "2", "34", "12", "43", "2", "11"];
+
+        function sortTab6(a,b){
+            // od najmniejszej do największej
+            // return a - b;
+
+            // od największej do najmniejszej
+            return b - a;
+        }
+
+        console.log(tab6.sort(sortTab6));
+
+
+        // sortowanie elementów dwóch tablic
+        const tab7 = ["1", "11", "5", "10", "2", "34"];
+        const tab8 = ["43", "2", "11"];
+
+
+        // łączenie dwóch tablic, można użyć do tego znaku "+" ale wtedy dwie tablice zostaną przekonwerotowane do stringa
+
+        let tab9 = ["Ala", "Ola"];
+        let tab10 = ["Jola", "Kasia"];
+
+        console.log(tab9 + tab10);
+
+        // prawidowo nalezy to więc robić za pomocą Array.concat() - jako prametry przyjmuje jedną lub kilka tablic
+
+        let tabsConcat = tab9.concat(tab10);
+        console.log(tabsConcat);
+
+
+
+        //Srednia z wartości tablicy
+
+        let tab11 = [5,5,4,2,5,4,5,4];
+        let suma = 0;
+        let tabLenth = tab11.length;
+        for(let a = 0; a < tab11.length; a++){
+            suma += tab11[a];
+        }
+
+        suma = suma / tabLenth;
+        console.log(suma);
+
+        // największa i najmniejsza wartosc w tablicy
+
+        // ????? ??? 
+
+        // ??? ?????
+
+        // wycinanie kawałka tablicy za pomoca metody Array.slice(od, do*) tak samo jak przy stringach, zwraca nową tablicę zawierającą wycięte elementy z tablicy na której została wywołana. Metoda ta nie modyfikuje tablicy, na której jest wywoływana.
+
+        const tab12 = ["Jaco", "Olga", "Misza"];
+        console.log(tab12.slice(0,2));
+
+
+        // usuwanie lub dodawanie elementow za pomoca splice - modyfikuje ona tablicę !
+
+        const tab13 = ['Marcin', 'Ania', 'Agnieszka'];
+
+        tab13.splice(1, 1);
+        console.log(tab13); //wypisze "Marcin, Agnieszka"
+
+        tab13.splice(1, 1, 'Monika', 'Magda') //usuwam z wcześniejszego "Agnieszka" i wstawiam na jej miejsce inne panie
+        console.log(tab13); //wypisze "Marcin, Monika, Magda"
+
+        // usuwanie pojedynczego elementu w tablicy
+
+        // ???
+
+        // dodawanie elementu na koniec tablicy
+
+        let tab14 = ["jaco","gienek","jan"];
+        tab14.push("zygi")
+        console.log(tab14);
+
+        // usuwanie ostatniego elementu
+        tab14.pop();
+        console.log(tab14);
+
+
+        // dodawnie elementu na początku tablicy
+
+        // tab.unshift();
+
+        // usuwanie pierwszego elementu z początku tablicy
+
+        // tab.shift();
+
+
+        // dodanie elementu tablicy w dowolnym miejscu
+
+        const tab15 = ['Marcin', 'Ania', 'Agnieszka', 'Monika'];
+        tab15.splice(1, 0, 'Piotr'); //1 - który index, 0 - ile usunąć, 'Piotr' - element dodawany
+        console.log(tab15); //[Marcin, Piotr, Ania, Agnieszka, Monika]
+
+
+    </script>
+</html>

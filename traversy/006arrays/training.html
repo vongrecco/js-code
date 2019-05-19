@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+</head>
+<body>
+    <div class="container">
+        <a class="button">Asd</a>
+    </div>
+
+<script>
+
+
+let personList = [
+  { first: 'Ola', last:'Dzido', year: 1992, obrona: 2000},
+  { first: 'Anna', last:'Lipiec', year: 1994, obrona: 2004}, 
+  { first: 'Jonna', last:'Wrzesien', year: 1995, obrona: 2005}, 
+  { first: 'Kasia', last:'Maj', year: 1996, obrona: 2004}, 
+  { first: 'Ada', last:'Maj', year: 1993, obrona: 2001}, 
+  { first: 'Paula', last:'Marzec', year: 1992, obrona: 2000}, 
+  { first: 'Anna', last:'Luty', year: 1991, obrona: 2012}, 
+  { first: 'Monika', last:'Kwiecien', year: 1989, obrona: 2012}
+];
+
+
+let tab = ["ala", "ma", "kota", "kot1" , "kot3"];
+
+let tab1 = [1,6,3,5,2,1,7,4,3,7];
+
+ for ( let i of tab){
+   console.log(i);
+ }
+
+ let foreach = tab.forEach(function(el, i, arr){
+   console.log("element: "+el, "index: " + i, "tab : " + arr);
+ });
+
+// let tab1 = [1,6,3,5,2,1,7,4,3,7];
+
+let filtr = tab1.filter(function(el){
+  return el !== 2;
+});
+
+console.log(filtr);
+
+</script>
+
+</body>
+
+
+</html>

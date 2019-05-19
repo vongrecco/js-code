@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+	<main>
+
+<input type="text" id="text"><br>
+<input type="submit" value="click" id="click">
+<textarea name="asdasd" id="" cols="30" rows="10" id="textArea"></textarea>
+
+
+<p>/g - wyszukuje wszystkie wystąpienia w wyrazeniu!</p>
+<p>\d - wszystkie liczby 0-9</p>
+<p>\b - zaczyna słowo jako string</p>
+
+
+		<script type="text/javascript">
+				var button = document.getElementById('click');
+
+			function getReg(){
+				var element = document.getElementById('text').value;
+					
+				var reg12 = /\d+/g;
+				var regex = element.match(reg12);
+
+
+				if(regex){
+					console.log("Wyrazenie działa");
+				}else{
+					console.log("nie działa");
+				}
+			};
+
+			button.addEventListener("click", getReg);
+
+		</script>
+	</main>	
+	</body>
+</html>

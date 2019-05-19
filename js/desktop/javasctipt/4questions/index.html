@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+		<button onclick="clearInterval(startInt)">klik!</button>
+		<script>
+			// 1.odpal funkcje co 2 sek
+
+			function init(){
+				console.log('2 seconds');
+				// clearInterval(init, 6000);
+			}
+			setInterval(init,3000);
+
+			// 2.odpal funkcje po 4 sek
+
+			function startAfterTime(){
+				console.log('start after 4 seconds');
+			}
+			setTimeout(startAfterTime, 4000);
+
+			// 3.zastopuje funkcje buttonem
+			function stopInit(){
+				console.log('co 5 sek!');
+			}
+			var startInt = setInterval(stopInit, 5000);
+
+			// 4.poprzednie okno w przegladarce
+
+			window.history.back();
+
+			// 5. nastepne okno w przegladarce
+
+			window.history.forward();
+
+			// 6. url aktualnej strony
+
+			console.log(window.location.href);
+
+			// 7.nazwa hosta
+
+			console.log(window.location.hostname);
+
+			// 8.szerokosc ekranu odwiedzajacych
+
+			console.log('szerokosc ekranu '+screen.width);
+
+
+			// 9.wysokosc ekranu
+
+			console.log('wysokosc ekranu: ' +screen.height);
+
+			// 10.wysokosc i szerokosc bez np. toolbara to?
+
+			console.log('wysokosc: '+screen.availHeight+ '/szerokosc: '+screen.availWidth);
+
+			console.log(screen.colorDepth);
+
+			// 11.szerokosc okna przegladarki
+
+			console.log(window.innerWidth);
+
+			// 12. wysokosc okna przegladarki
+
+			console.log(window.innerHeight);
+			// or
+			console.log(document.body.clientWidth);
+		</script>
+	</body>
+</html>

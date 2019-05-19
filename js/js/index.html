@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Projekt Petmedica</title>
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <button class="btn">ad</button>
+        <button class="btn">asd</button>
+        <button class="btn">asdf</button>
+    </div>
+</body>
+   
+    <script type="text/javascript">
+
+        // skrócona wersja if - operator warunkowy
+
+        let a = 4;
+        let aSummary = (a === 5) ? "wynik jest rowny 5" : "wynik nie jest równy 5!";
+        console.log(aSummary);
+
+        let b = 3;
+
+        // switch
+
+        switch(b){
+            case 1:
+                console.log('jest równe 1');
+                break;
+            case 2:
+                console.log('jest równe 2');
+                break;
+            case 3:
+                console.log('jest równe 3');
+                break;
+            default:
+                console.log('Nie ma takiego numeru');
+        }
+
+        // pyntle
+
+        for(let i = 1; i < 10; i++){
+            console.log(i +' obrót pętli');
+        }
+
+        // pętla while - stosowana jest zazwyczaj kiedy, nie wiemy ile powtórzeń ma się wykonać 
+
+        let c = 1;
+
+        while(c <=5){
+            console.log(c + ' powtórzeń zmiennej C');
+            c++;
+        }
+
+        // pętla po tablicy
+
+        let d = ['Ala', 'Ola', 'Monika'];
+
+        for (let e = 0; e < d.length; e++){
+            console.log(d[e]);
+        }
+
+        // pętla po elementach strony
+
+        let f = document.querySelectorAll('.btn');
+
+        for (let g = 0;g < f.length; g++){
+            f[g].style.background = "red";
+        }
+
+       // ES 6 Pętala for of 
+
+       let h = ['Piotr', 'Mati', 'Jan'];
+
+       for ( el in h ){
+        console.log('elementy tablicy h: '+el);;
+       }
+
+       // pętla po tablicy i zakończenie jej działa po odnalezieniu szukanego
+
+       let i = ["Jan", "Adam", "Mirek", "Franz"];
+
+       let userExist = false;
+
+       for(let j = 0; j < i.length; j++){
+            console.log(i[j] + " : ");
+            if(i[j] == "Adam"){
+                userExist == true;
+                break;
+            }
+       }
+
+
+       // pęta po tablicy przerwanie danej iteracji
+
+        const tab = ["Ala", "Monika", "Beata", "Karol", "Alicja"];
+
+        for (let i=0; i<tab.length; i++) {
+            if (tab[i] === "Karol") {
+                continue; //Karola pomiń
+            }
+            console.log(tab[i]);
+        }
+
+        let i = 0;
+        let n = 0;
+        while (i < 5) {
+          i++;
+          if (i == 3) {
+            continue;
+          }
+          n += i;
+        }
+
+// Zwróć uwagę, że gdy stosujemy continue w pętli while, zwiększanie licznika musimy robić przed użyciem tej instrukcji. Inaczej możemy trafić na moment, gdy aktualne powtórzenie będzie przerywane a tym samym zwiększanie licznika nigdy nie nastąpi
+
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<div id="area">
+			<p id="first">$('*') - pobiera wszystkie elementy</p>
+			<p class="second">$('#area').find('*');</p>
+			<p class="third"></p>
+			<p class="input"><input type="text" value="ale ma value"></p>
+			<p><input type="button" value="Buton"></p>
+			<p><input type="text"></p>
+			<p>wiele selektorow na raz wstawiamy po przecinku</p>
+			<p>co drugie Parzyste odd, nieparzyste even: $('p:even, a:odd')</p>
+		</div>
+	</main>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var a = $('#area').find('*').length;
+				console.log(a);
+				var b = $('p.input input').val();
+				console.log(b);
+				var c = $('.third').text('Trzeci');
+				// pobiera typ inputa
+				var d = $('p input:button');
+				// zmienia atrybut
+				d.click(function(){
+					$(this).attr('value', 'To jest atrybut buttona');
+					console.log(d);
+				});
+				$(':text').focusin(function(){
+					$(this).css('background-color', 'red');
+				
+				});
+			});
+		</script>
+	</body>
+</html>

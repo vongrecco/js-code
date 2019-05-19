@@ -1,0 +1,1 @@
+﻿Tutaj wstaw dowolne miniaturki (pamiętaj o zmianie nazw plików w skrypcie .js)

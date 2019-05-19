@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main style="position: relative;">
+		<form>
+			<input type="checkbox" value="klik" id="agree"><br>
+			<input type="submit" id="continue" disabled="disabled" value="continue">
+		</form>
+	</main>
+
+	<style>
+
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#agree').on('change', function(){
+				var state = $(this);
+				
+				if(state.is(':checked')){
+					 $('#continue').removeAttr('disabled');
+				}else{
+					 $('#continue').attr('disabled', 'disabled');
+				}
+			});
+		});
+		</script>
+	</body>
+</html>

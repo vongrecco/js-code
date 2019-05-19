@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+<script type="text/javascript">
+	
+
+// 1. długość stringu .length
+let ala = "ala ma kota!";
+console.log(ala.length);
+
+
+// 2. charAt - zwraca znak z konkretnego indeksu w stringu
+
+console.log("chartAt : "+ ala.charAt(0));
+console.log("chartAt (ostatni string) : " + ala.charAt(ala.length-1));
+
+
+// 3. indexOf() - Metoda ta służy do szukania pozycji pierwszego wystąpienia szukanego fragmentu w tekście
+
+let indexoff = "Metoda ta służy do podawania pozycji szukanego fragmentu w tekście";
+console.log("indexOf : " + indexoff.indexOf('podawania'));
+
+
+// 4. lastIndexOf() - Metoda ta służy do szukania pozycji otatniego wystąpienia szukanego fragmentu w tekście
+
+let lastindexof = "Ala ma kot. Wściekły kot";
+console.log('lastIndexOf : ' + lastindexof.lastIndexOf('kot'));
+
+// a) jeśli nie znajdą stringu to zwracają -1
+// b) obie metody akceptują drugi parametr, które przekazuje od którego momentu ma zacząć szukać
+console.log("indexOf drugi parametr : " + lastindexof.indexOf('kot', 10));
+
+// 5. Pobieranie kodu znaku za pomocą charCodeAt()
+
+const charcode = "Ala ma kota";
+
+console.log("charCodeAt() : " + charcode.charCodeAt(0)); //65 (A)
+console.log("charCodeAt() : " + charcode.charCodeAt(4)); //109 (m)
+
+
+// 6. toUpperCase - zmienia litery na duże
+
+var upperCase = "Ala ma Kota";
+console.log('toUpperCase : ' + upperCase.toUpperCase());
+
+// 7. toLowerCase - zmienia litery na małe
+
+var upperCase = "Ala ma Kota";
+console.log('toLowerCase : ' + upperCase.toLowerCase());
+
+
+// 8.search() - wyszukuje string i pokazuje jego miejsce w tekscie
+
+var search = "Please locate where 'locate' occurs!";
+var possearch = search.search("locate");
+console.log("search : " + possearch);
+
+// The two methods are NOT equal. These are the differences:
+
+// a) The search() method cannot take a second start position argument.
+// b) The indexOf() method cannot take powerful search values (regular expressions).
+
+
+// Istnieją trzy sposoby na wycięcie części tekstu
+// 9.slice() - wycina część tekstu i zwraca nowy string z wyciętą zawartością
+// a) Zawiera dwa parametry: pozycję startową, oraz pozycję koncową, która jest opcjonalna.
+// b) jesli pominiemy drugi paameter to tekst wyciety zostanie do konca
+
+var slice = "Apple, Banana, Kiwi";
+var sliceRes = slice.slice(7, 13);
+console.log('slice : ' + sliceRes);
+
+// c)jeśli parametr jest minusowy to pozycja liczona jest odd konca tekstu
+
+var slice = "Apple, Janana, Kiwi";
+var sliceRes = slice.slice(-13, -6);
+console.log('sliceUjemny : ' + sliceRes);
+
+// d) przy podanym jednym parametrze ujemnym, liczony jest od konca do konca tekstu
+
+console.log('slice ujemny parametr, tylko jeden : ' + slice.slice(-13));
+
+// 10) substring() jest podobne do slice()
+// a) różniącą jest akceptacja ujemnych wartości, substring po prostu ich nie akceptuje
+// b) Zawiera dwa parametry: pozycję startową, oraz pozycję koncową, która jest opcjonalna.
+// c) jesli pominiemy drugi pameter to tekst wyciety zostanie do konca
+
+
+// 11) substr() jest podobne do slice
+// a) różnicą jest znaczenie drugiego parametru - oznacza on długość wycinanego tekstu
+
+let substr =  "Apple, Janana, Kiwi";
+let substrRes = substr.substr(0, 10);
+
+console.log('substr : ' + substrRes)
+
+// b) jeśli pominiemy drugi parametr to wycina do konca
+// c) jeśli pierwszy parametr jest negatywny to pozycja wycinana liczona jest od konca 
+
+
+// 11. replace() - zastępuje wyszukaną wartość na podaną wartość w stingu
+
+let replace = "Please visit Microsoft!";
+let replaceRes = replace.replace("Microsoft", "Urząd pracy");
+console.log('replace : ' + replaceRes);
+
+// a) replace() nie zmienia bieżącego stringu tylko tworzy nowy
+// b) domyślnie zastępuję tylko i wyłącznie pierwszy wyszukany string
+
+replace = "Please visit Microsoft, Microsoft jest spoko!";
+replaceRes = replace.replace("Microsoft", "Urząd pracy");
+console.log('replace pierwsza podmiana : ' + replaceRes);
+
+// c) replace jest wrażliwe na duże i małe litery
+
+// d) aby zmienić tekst niezależnie od dużej czy małej litery należy użyć wyrażen regularnych w tym przypadku i
+
+replace = "Please visit Microsoft!";
+replaceRes = replace.replace(/MicrOSOFT/i, "Urząd pracy");
+console.log('replace wyrazenie regularne : ' + replaceRes);
+
+// e) aby podmienić wszystkie wystąpienia nalezy użyć wyrażenia regularnego g
+
+replace = "Please visit Microsoft, Microsoft jest spoko!";
+replaceRes = replace.replace(/Microsoft/g, "Urząd pracy");
+console.log('replace podmiana wszystkich wystąpien : ' + replaceRes);
+
+// 12) concat() - dodaje do siebie dwa stringi działa jak + 
+
+var text = "Hello" + " " + "World!";
+var text = "Hello".concat(" ", "World!");
+
+// 13) trim() usuwa białe spacje z tekstu
+
+var trim = "       Hello World!        ";
+console.log('trim : ' + trim.trim());
+
+// 14) ECMAScript 5 (2009) pozwala na dostęp do stringu [ ]
+
+var str = "HELLO WORLD";         
+console.log("string[] : " + str[0]); 
+
+// 15. SPLIT() konwertowanie stringu na tablicę
+
+// 16 ) The Template Literal, wprowadzone w ES6, nowy sposób na używanie stringów.
+
+// a) 
+let newString = `A string`;
+
+//b) wykorzystanie zmiennej
+
+let name = `Ryan`;
+console.log(`Hi my name is ${name}`);
+
+// c) wykorzystanie html w zmiennej
+
+let data = 22;
+let newStringDecla = `
+        <article class="pokemon">
+            <h3>${data.name}</h3>
+            <p>The Pokemon ${data} has a base experience they also weigh</p>
+        </article>
+    `
+
+console.log(newStringDecla)	
+
+
+ZADANIA
+
+
+
+// console.log(splitme.replace('Ala', 'Ola'));
+
+// podmiana wszystkich
+
+// replaceAll = splitme.replace(/Ala/g, "Ola");
+// console.log(replaceAll);
+
+// długość teksu
+
+let text1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, reprehenderit, nulla. Et quaerat, maxime harum iste aspernatur dignissimos voluptas. Dolorum mollitia quae maiores aliquid at deleniti sed, iusto optio possimus.";
+
+console.log('długść tekstu: '+text1.length +" znaków");
+
+//ilosc wyrazow z zmiennej
+let text2 = "Lorem ipsum dolor sit amet, consectetu";
+text2 = text2.split(" ");
+console.log('ilosc wyrazow to: '+ text2.length);
+
+// pierwsza duza litera
+
+let imie = "piotrek";
+let imie2 = imie.charAt(0);
+imie2 = imie2.toUpperCase();
+let imie3 = imie.substr(1);
+let imie4 = imie2+imie3;
+console.log("prawidłowe imię: " + imie4);
+
+let imie5 = "ola";
+imie5 = imie5.charAt(0).toUpperCase() + imie5.slice(1);
+console.log(imie5);
+
+// znak w zmiennej
+
+let email = "loremimpsum@gmail.com";
+
+if(email.indexOf('@') !== -1){
+	console.log('ciąg zawiera @')
+}else{
+	console.log('ciąg nie zawiera @');
+}
+
+
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+
+    <main>
+        <h1>GIT</h1>
+		
+		<h2>Statusy</h2>
+		<p><strong>Zmodyfikowany</strong></p>
+		<p><strong>Śledzony </strong>po <span>git add</span></p>
+		<p><strong>Zatwierdzony</strong> - po <span>git commit</span></p>
+
+        <ol>
+            <li><span>git init</span> inicjalizacja repozytorium </li>
+            <li><span>git status</span> status repozytorium</li>
+            <li><span>.gitignore</span> tworzenie pliku w którym umieszczamy ignorowane pliki</li>
+        </ol>
+        <h2>git add</h2>
+        	<ol>
+        		<li><span>git add</span> dodaje pliki do kolejki</li>
+        		<li>mogę w nim określić który plik, podając jego nazwę, folder, lub wszystkie pliki za pomocą "."</li>
+        		<li><span>git status</span> ponownie pokaże jakie zmiany zaszły w repo</li>
+        	</ol>
+
+        <h2>git commit</h2>
+        	<ol>
+        		<li><span>git commit</span> zapisuje zmiany w repozytorium</li>
+        		<li><span>git commit -m "komentarz zmian"</span>powinien zawierać dodatkowo jakie zmiany zostały wprowadzone</li>
+        		<li>czasem jeśli zamominymy o podaniu komentarza to otwrozy się okienko, w którym będziemy mogli go dodać</li>
+        	</ol>
+
+
+
+        	<h2>Notatki</h2>
+        	<p>Bilokacja - plik posiada dwa stany jednocześnie. Występuje jeśli tworzymy plik, dodajemy git add, a następnie przed commitem wprowadzamy w nim zmiany. W takim wypadku w "przechowalni" znajduje się wersja przed ostatniej modyfikacji, a w katalogu roboczym wersja ze zmianąs</p>
+        	<p>Mozna wtedy zatwierdzić poprzednie zmiany poprzez git commit lub dodać najnowsze zmiany za pomocą git add a następnie git commit</p>
+
+        <h2>Przestrzeń robocza i stage</h2>
+
+        <ol>
+        	<li><span>git clean</span> służy do usuwania niesledzonych plików. Nieśledzone to takie które nie były dodawane do repo za pomocą git add.</li>
+        	<li>po użyciu tej komendy pojawi się błąd w którym dostatniemy informację, że zmiany te są nieodwracalne</li>
+        	<li><span>git clean -n</span> - pokazuje jakie pliki zostałby usunięte</li>
+        	<li><span>git clean -nd</span> - z flaga nd pokazuje jakie pliki i (d) foldery może usunąć - domyslnie (n) ze względów bezpieczeństaw dotyczy tylko plików</li>
+        	<li><span>git clean -idf</span></li>
+        	<li>i - to tryb interaktywny</li>
+        	<li>d - uwzględnia katalogii</li>
+        	<li>f - faktycznie usówa pliki</li>
+            <li><span>git clean -xn</span> usuwa pliki sytemowe</li>
+        	<li>pokazuje się kilka opcji np. usuń, filtruj, zapytaj które itd. wybieramy odpowidni numerek i potwierdzamy y/n</li>
+        </ol>
+
+        <ol>
+        	<li><span>git reset</span> usuwa pliki kolejki oczekiwania </li>
+            <li><span>git rm nazwa.html</span> usuwa plik zostaje usunięty, następnie git commit aby usunąć z całkowicie</li>
+            <li><span>git checkout ściezka</span> - przywraca plik z repozytorium</li>
+        </ol>
+
+        <h2>przywracanie zmian</h2>
+        <ol>
+            <li><span>git checkout</span> - przywraca plik/projekt z repo </li>
+            <li><span>git log -oneline</span> - historia repo</li>
+            <li>Polecenia git checkout, git revert i git reset.</li>
+            <li>4/12</li>
+        </ol>
+
+        <h2>historia zmian</h2>
+        <ol>
+            <li><span>git lock</span></li>
+        </ol>
+
+        <h2>komentarze</h2>
+        <ol>
+            <li>tytuł i treść </li>
+
+            <li><span>git commit</span> następnie pokarze się okienko w którym w pierwszej linii jest miejce na tytuł</li>
+            <li>po enterach podadjemy opis</li>
+            <li>własne okno edycji</li>
+            <li>https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration</li>
+            <li>https://help.github.com/en/articles/associating-text-editors-with-git</li>
+            <li>dobre zasady</li>
+            <li>tytuł do 50 znaków</li>
+            <li>tytuł z dużej litery</li>
+            <li>bez kropki na końcu tytułu</li>
+            <li>tryb rozkazujący w tresci komentarza</li>
+            <li>wiersz komentarza do 72 znakóws</li>
+        </ol>
+
+        <h2>git stash</h2>
+        <ol>
+            <li><span>git stash</span></li>
+            <li>przywraca zmiany odłożone na stos, na bok</li>
+            <li>znajdując się na jednym branchu i wprowadzając zmiany, chcemy wejsc na drugi ale zmiany nie zostały z commitowane</li>
+            <li><span>git stash pop</span> przywraca odłożone zmiany  z innego branchu</li>
+            <li>pop - przywraca zmiany i uswa je ze stosu</li>
+            <li>apply - przywraca zmiany i zostawia je na stosie</li>
+        </ol>
+        7 / 12
+
+        <h2>branch</h2>
+        <ol>
+            <li><span>git branch</span> - sprawdza branche</li>
+            <li><span>git checkout</span> - przełącza branch</li>
+            <li><span>git merge nazwaBranchu</span> - łączy dwa branche</li>
+            <li><span>git merge -D nazwaBranchu</span> - usuwa branche</li>
+            <li>master branch powinna zawsze zawierać poprawną, działającą wersję</li>
+            <li>dev branch - gałąź połączona z serwerem testowym</li>
+            <li>feature branch - gałąź zawierajaca nowe funkcjonalności</li>
+            <li>user branch - dla poszczególnych uzytkownikow</li>
+            <li>test/bugfix branch - w razie błędów</li>
+        </ol>
+
+        <ol>
+            <li>git fetch- pobiera zmiany ze zdalnego repozytorium </li>
+            <li><span>git merge origin/master</span> - pobiera zmiany ze zdalnego repo do lokalnego</li>
+        </ol>
+
+        <h2>Fork - kopia jakiegoś repo do którego nie mamy wjazdu</h2>
+        <ol>
+            <li></li>
+        </ol>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

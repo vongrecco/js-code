@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<div id="area">
+		<input id="name" type="text"></input>
+			<ul id="asd">
+				<li>Piotr</li>
+				<li>Łotr</li>
+				<li>Paweł</li>
+				<li>Adam</li>
+			</ul>
+		</div>
+	</main>
+
+	<style>
+		.highltight{
+			background-color:green;
+		}
+	</style>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#name').keyup(function(){
+					var search = $(this).val();
+					$("#asd li").removeClass('highltight');
+						if(search !== ''){
+							$("#asd li:contains('"+ search +"')").addClass('highltight');
+						}
+				});
+			});
+		</script>
+	</body>
+</html>

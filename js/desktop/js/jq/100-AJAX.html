@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		<div id="area">
+			<p>Mouse is at coordinates: <span></span>.</p>
+		</div>
+	</main>
+		<script src="jquery-3.2.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $(document).mousemove(function(event){
+			        $("span").text(event.pageX + ", " + event.pageY);
+			    });
+			});
+		</script>
+	</body>
+</html>

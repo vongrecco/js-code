@@ -1,0 +1,1 @@
+document.write("<h4>Witaj programisto</h4>");

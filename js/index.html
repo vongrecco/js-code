@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saeco</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	<main>
+		asdasd
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//szerokosc ekranu monitora
+			  // var screenWidth = screen.width - 40,
+			  // szerokosc przeglądarki
+			  var screenWidth = $(window).width() - 40,
+			      currentMousePosition = { x : -1};
+			      // ruch myszką
+			  $(document).mousemove(function(event){
+			  	// pozycja kursora wzgledem lewej strony
+			    currentMousePosition.x = event.pageX;
+			    if(currentMousePosition.x < 40 ){
+			        console.log('lewa strona');
+			    }else if( currentMousePosition.x > screenWidth){
+			        console.log('prawa strona');
+			    }
+			  });
+			});
+		</script>
+	</main>	
+	</body>
+</html>

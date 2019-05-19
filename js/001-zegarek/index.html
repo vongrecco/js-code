@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Theme CSS -->
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="clock">
+    <div class="min"></div>
+    <div class="sec"></div>
+    <div class="hour"></div>
+  </div>
+
+  <div class="date">
+      
+  </div>
+</body>
+   
+    <script type="text/javascript">
+
+    let minEl = document.querySelector('.min'),
+        secEl = document.querySelector('.sec'),
+        hourEl = document.querySelector('.hour');
+
+
+        function timer(){
+            let time = new Date();
+            let hours = time.getHours(),
+                minutes = time.getMinutes(),
+                seconds = time.getSeconds();
+
+
+            let hourPointer = hours * 30,
+                minutesPointer = minutes * 6;
+                secondsPointer = seconds * 6;
+
+            hourEl.style.transform = "rotate("+ hourPointer +"deg)";
+            minEl.style.transform = "rotate("+ minutesPointer +"deg)";
+            secEl.style.transform = "rotate("+ secondsPointer +"deg)";
+        }
+
+
+// setTimeout wywołuje się jeden raz
+// setInterval cyklicznie
+
+        setInterval(timer, 1000);
+
+
+        // wyświetlanie daty
+        let actualDate = new Date();
+            actualDateEl = document.querySelector('.date');
+
+
+        actualDateEl.innerHTML = actualDate.getDate() + "/" + (actualDate.getMonth()+1) + "/" + actualDate.getFullYear();
+        
+    </script>
+</html>

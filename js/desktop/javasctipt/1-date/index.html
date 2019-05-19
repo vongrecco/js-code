@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gra</title>
+		<meta charset="UTF-8" />
+
+		
+	</head>
+	<body>
+	<div id="output"></div>
+		<script>
+		//tworzenie daty aktualnej
+			var dzis = new Date();
+			console.log(dzis);
+		// tworzenie okreslonej daty
+			var date1 = new Date(2012, 05, 11);
+			console.log(date1);
+		// dzien miesiaca
+			console.log( dzis.getDate() );
+		// dzien tygodnia / 0- niedziela
+			console.log( dzis.getDay() );
+
+		// rok w postaci 4 cyfrowej
+			console.log( dzis.getFullYear() );
+
+		// godzina od 0 do 23
+			console.log( dzis.getHours() );
+
+		// milsekundy
+			console.log( dzis.getMilliseconds() );
+
+		// godzina od 0 do 23
+			console.log( dzis.getHours() );
+
+		// zwraca minuty
+			console.log( dzis.getMinutes() );
+
+		// zwraca miesiąc, 0 oznacza styczen
+			console.log( dzis.getMonth() );
+
+		//	zwraca sekundy
+			console.log( dzis.getSeconds() );
+
+		// milisekundy od czasu unixowego
+			console.log( dzis.getTime() );
+
+			function init(){
+				'use strict';
+
+				var today = new Date();
+//toLocaleString - jest to jedna z metod obiektu date zwracająca ją jako string
+				var message = "Dziś mamy " + today.toLocaleString();
+				message += " i jest godzina "+ today.getHours() + ':' + today.getMinutes();
+
+				var output = document.getElementById('output');
+
+				if(output.textContent !== undefined ){
+					output.textContent = message;
+				}else{
+					output.innerText = message;
+				}
+			}
+
+			window.onload = init;
+
+// znacznik czasowy bez wykorzystanie date - od ecma5
+			var znacznik = Date.now();
+			console.log(znacznik);
+
+// dwa tygodnie do przodu
+			var teraz = Date.now();
+			var potem = new Date('2018/12/21 13:30');
+			var rozninca = potem - teraz;
+		</script>
+	</body>
+</html>
